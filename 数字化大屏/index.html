@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="favicon.ico" rel="icon" />
+    <link rel="stylesheet" href="./style/css/normalize.css">
+    <link rel="stylesheet" href="./style/css/style.min.css">
+    <link rel="stylesheet" href=".//style/css/swiper-bundle.min.css">
+    <title>百年通数字化运营展示系统</title>
+    </title>
+</head>
+
+<body>
+    <div class="container flex" id="app">
+        <header class="header-container">百年通数字化运营展示</header>
+        <div class="left flex space-around">
+            <!-- 公司概况 -->
+            <div class="companyProfile part part880">
+                <header class="partHeader">公司概况</header>
+                <div class="top">
+                    <ul class="g flex space-around">
+                        <li class="groupTotalRevenueIndustryRanking">
+                            <p>NO.1</p>
+                            <small>集团总收入行业排名</small>
+                            <img src="./assets/groupTotalRevenueIndustryRanking.png">
+                        </li>
+                        <li class="profitTaxAndProfitIndustryRanking">
+                            <p>NO.1</p>
+                            <small>利税和利润行业排名</small>
+                            <img src="./assets/profitTaxAndProfitIndustryRanking.png">
+                        </li>
+                        <li class="perCapitaOutputValueRanking">
+                            <p>NO.1</p>
+                            <small>人均产值排名</small>
+                            <img src="./assets/perCapitaOutputValueRanking.png">
+                        </li>
+                    </ul>
+                    <ul class="y flex space-around">
+                        <li class="marketShareOfHighEndConveyorBelts">
+                            <p>NO.1</p>
+                            <small>高端输送带市占率</small>
+                            <img src="./assets/marketShareOfHighEndConveyorBelts.png">
+                        </li>
+                        <li class="nationalEnterpriseTechnologyCenter">
+                            <p>NO.1</p>
+                            <small>国家企业技术中心</small>
+                            <img src="./assets/nationalEnterpriseTechnologyCenter.png">
+                        </li>
+                        <li class="nationalScienceAndTechnologyProgressAward">
+                            <p>NO.1</p>
+                            <small>国家科学技术进步奖</small>
+                            <img src="./assets/nationalScienceAndTechnologyProgressAward.png">
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <header class="chartHeader"><span>历史营收趋势</span></header>
+                    <div class="a flex">
+                        <div class="c">
+                            <div ref="yearsRevenueTrendChart" class="chart"></div>
+                        </div>
+                        <div class="rate">
+                            <small>营收年增长率</small>
+                            <p>29.54%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="left_2 part880">
+                <!-- 社会贡献 -->
+                <div class="socialContribution">
+                    <header class="partHeader header-bg">社会贡献</header>
+                    <div class="social main-bg flex space-between">
+                        <ul class="social_1 flex flex-direction-column space-between" style="width: 150px;">
+                            <li>
+                                <p><big>419</big><small>万</small></p>
+                                <span>累计社会公益</span>
+                            </li>
+                            <li>
+                                <p><big>378</big><small>人</small></p>
+                                <span>解决就业岗位</span>
+                            </li>
+                        </ul>
+                        <div class="social_2" style="width: 286px;">
+                            <header class="chartHeader"><span>公司年度纳税</span></header>
+                            <div class="chart flex flex-row-center flex-column-center">
+                                <img src="./assets/pyramid.png" alt="">
+                            </div>
+                        </div>
+                        <div class="social_3" style="width: 286px;">
+                            <header class="chartHeader"><span>教育/公益基金占比</span></header>
+                        </div>
+                    </div>
+                    <footer class="footer-bg"></footer>
+                </div>
+                <!-- 绿色指数 -->
+                <div class="greenIndex">
+                    <header class="partHeader header-bg">绿色指数</header>
+                    <div class="green main-bg">
+                        <div class="green_1 flex space-between">
+                            <div class="p">
+                                <header>碳排放当年累计</header>
+                                <main class="flex">
+                                    <span>2</span>
+                                    <span>4</span>
+                                    <span>8</span>
+                                    <span>4</span>
+                                    <span>.</span>
+                                    <span>4</span>
+                                    <span>9</span>
+                                </main>
+                            </div>
+                            <div class="p">
+                                <header>碳排放当年累计</header>
+                                <main class="flex">
+                                    <span>2</span>
+                                    <span>4</span>
+                                    <span>8</span>
+                                    <span>4</span>
+                                    <span>.</span>
+                                    <span>4</span>
+                                    <span>9</span>
+                                </main>
+                            </div>
+                        </div>
+                        <div class="green_2 flex space-between">
+                            <div class="green_line">
+                                <header class="chartHeader"><span>碳排放月度趋势</span></header>
+                                <div ref="carbonEmissionsTrendChart" class="chart"></div>
+                            </div>
+                            <div class="green_pie">
+                                <header class="chartHeader"><span>各厂区发电量</span></header>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="footer-bg"></footer>
+                </div>
+            </div>
+            <!-- 科技指数 -->
+            <div class="technology part part1114">
+                <header class="partHeader">科技指数</header>
+                <div class="tech flex space-between">
+                    <ul class="tech_1">
+                        <li class="flex">
+                            <div class="span">国家/省级技术平台</div>
+                            <div class="big">12</div>
+                            <div class="small">个</div>
+                        </li>
+                        <li class="flex">
+                            <div class="span">科技进步奖</div>
+                            <div class="big">7</div>
+                            <div class="small">项</div>
+                        </li>
+                        <li class="flex">
+                            <div class="span">专利软著数</div>
+                            <div class="big">39</div>
+                            <div class="small">个</div>
+                        </li>
+                        <li class="flex">
+                            <div class="span">国际先进水平科技成果鉴定</div>
+                            <div class="big">13</div>
+                            <div class="small">项</div>
+                        </li>
+                        <li class="flex">
+                            <div class="span">国家/行业标准制修订</div>
+                            <div class="big">14</div>
+                            <div class="small">项</div>
+                        </li>
+                        <div class="dashboard">
+                            <div ref="dashboardChart_1" class="chart"></div>
+                        </div>
+                        <li class="flex">
+                            <div class="span">国家/省级重点新产品</div>
+                            <div class="big">14</div>
+                            <div class="small">项</div>
+                        </li>
+                        <div class="dashboard">
+                            <div ref="dashboardChart_2" class="chart"></div>
+                        </div>
+                    </ul>
+                    <div class="tech_2">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img"><img src="./assets/test.jpg"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img"><img src="./assets/test.jpg"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img"><img src="./assets/test.jpg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline">
+                            <div class="content">
+                                <div class="fr"></div>
+                                <div class="title">{{technology.active.year}}年</div>
+                                <div class="desc">{{technology.active.desc}}</div>
+                            </div>
+                            <div id="sum">
+                                <div id="second">
+                                    <ul>
+                                        <li v-for="(item, index) in technology.introduce"
+                                            :style="getTimelineYearStyle(index)" :class="item.active ? 'active': ''">
+                                            <span>{{item.year}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="minute">
+                                    <ul>
+                                        <li v-for="index in 60" :style="getTimelineTickStyle(index-1)"
+                                            :class="[((index-1) % 5 === 0 || index-1 == 0) ? 'timelineTickActive': 'timelineTick']">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 研发 -->
+            <div class="research part part880">
+                <header class="partHeader">研发</header>
+                <div class="re flex flex-direction-column space-between">
+                    <div class="re_1 flex">
+                        <ul class="l flex flex-direction-column space-between">
+                            <li class="flex flex-column-center space-around">
+                                <img src="assets/research-1.png">
+                                <span>改进项目（产品/工艺）</span>
+                                <p>20</p>
+                            </li>
+                            <li class="flex flex-column-center space-around">
+                                <img src="assets/research-2.png">
+                                <span>产学研项目</span>
+                                <p>20</p>
+                            </li>
+                            <li class="flex flex-column-center space-around">
+                                <img src="assets/research-3.png">
+                                <span>产学研项目</span>
+                                <p>20</p>
+                            </li>
+                        </ul>
+                        <div class="r">
+                            <div ref="improvementChart" class="chart"></div>
+                        </div>
+                    </div>
+                    <div class="re_2 flex space-between">
+                        <div class="c">
+                            <header class="chartHeader"><span>新增客户年度趋势</span></header>
+                            <div ref="productYearCountChart" class="chart"></div>
+                        </div>
+                        <div class="c">
+                            <header class="chartHeader"><span>改进项目年度统计</span></header>
+                            <div ref="improvementProjectYearChart" class="chart"></div>
+                        </div>
+                    </div>
+                    <div class="re_3">
+                        <header class="chartHeader"><span>产学研合作单位</span></header>
+                        <ul class="university flex space-around">
+                            <li>
+                                <div class="u_logo"><img src=""></div>
+                                <p class="flex flex-row-center flex-column-center">北京航空航天大学</p>
+                            </li>
+                            <li>
+                                <div class="u_logo"><img src=""></div>
+                                <p class="flex flex-row-center flex-column-center">北京航空航天大学</p>
+                            </li>
+                            <li>
+                                <div class="u_logo"><img src=""></div>
+                                <p class="flex flex-row-center flex-column-center">北京航空航天大学</p>
+                            </li>
+                            <li>
+                                <div class="u_logo"><img src=""></div>
+                                <p class="flex flex-row-center flex-column-center">北京航空航天大学</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center flex space-around">
+            <!-- 客户 -->
+            <div class="customer part part1096">
+                <header class="partHeader">客户分布</header>
+                <ul class="overview inMargin flex space-between">
+                    <li>
+                        <span>当前总累计</span>
+                        <div>761</div>
+                    </li>
+                    <li>
+                        <span>客户分布国家</span>
+                        <div>761</div>
+                    </li>
+                    <li>
+                        <span>本年度累计</span>
+                        <div>761</div>
+                    </li>
+                    <li>
+                        <span>本年度新增</span>
+                        <div>761</div>
+                    </li>
+                </ul>
+                <div class="c_chart inMargin flex space-between">
+                    <div class="c_chart_li">
+                        <header class="chartHeader"><span>新增客户年度趋势</span></header>
+                        <div ref="customerYearTrendChart" class="chart"></div>
+                    </div>
+                    <div class="c_chart_li">
+                        <header class="chartHeader"><span>本年度国内国外客户数量占比</span></header>
+                        <div id="customerNumberProplChart" ref="customerNumberProplChart" class="chart"></div>
+                    </div>
+                    <div class="c_chart_li">
+                        <header class="chartHeader"><span>国外客户占比趋势</span></header>
+                        <div ref="foreignCustomerTrendChart" class="chart"></div>
+                    </div>
+                    <div class="c_chart_li">
+                        <header class="chartHeader"><span>客户行业分布（五大行业）</span></header>
+                        </header>
+                        <div ref="customerIndustryChart" class="chart"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 地图 -->
+            <div class="map">
+                <div ref="map" class="mapChart"></div>
+                <ul class="legend1 flex space-around">
+                    <li><img src="./assets/legend1.png"></li>
+                    <li><img src="./assets/legend2.png"></li>
+                    <li><img src="./assets/legend3.png"></li>
+                    <li><img src="./assets/legend4.png"></li>
+                    <li><img src="./assets/legend5.png"></li>
+                </ul>
+                <div class="legend2 flex space-between">
+                    <div class="flex flex-column-center">
+                        <img src="./assets/map-distributor-lg.png" alt="">
+                        分支机构
+                    </div>
+                    <div class="flex flex-column-center">
+                        <img src="./assets/map-branch-lg.png" alt="">
+                        分销商
+                    </div>
+                    <!-- <div>分销商</div> -->
+                </div>
+                <div class="radar">
+                    <div ref="radarChart" class="chart"></div>
+                </div>
+            </div>
+            <!-- 营销 -->
+            <div class="sales part part1096">
+                <header class="partHeader">营销</header>
+                </header>
+                <ul class="overview inMargin flex space-around">
+                    <li>
+                        <div class="m">100</div>
+                        <p>本年度累计销量</p>
+                    </li>
+                    <li>
+                        <div class="m">20%</div>
+                        <p>本年度销量同比增长</p>
+                    </li>
+                    <li>
+                        <div class="m">50</div>
+                        <p>本年度签约订单量</p>
+                    </li>
+                    <li>
+                        <div class="m">20</div>
+                        <p>本年度新特产品销量</p>
+                    </li>
+                </ul>
+                <div class="s1 inMargin flex space-between">
+                    <div class="s1_chart">
+                        <header class="chartHeader"><span>签约订单量年度趋势</span></header>
+                        <div ref="contractOrderTrendChart" class="chart"></div>
+                    </div>
+                    <div class="s1_chart">
+                        <header class="chartHeader"><span>国内外销量趋势</span></header>
+                        <div ref="homeAndAbroadSalesTrendChart" class="chart"></div>
+                    </div>
+                </div>
+                <div class="s2 inMargin flex space-between">
+                    <div class="s2_chart">
+                        <div class="c">
+                            <header class="chartHeader"><span>新特产品销量趋势</span></header>
+                            <div ref="newProductsalesTrendChart" class="chart"></div>
+                        </div>
+                        <div class="c">
+                            <header class="chartHeader"><span>新特产品销量占比趋势</span></header>
+                            <div ref="newProductsalesProportionTrendChart" class="chart"></div>
+                        </div>
+                    </div>
+                    <div class="s2_chart">
+                        <header class="chartHeader"><span>本年度发货产品排名及占比</span></header>
+                        <div ref="yearProductRankAndProportionChart" class="chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right flex space-around">
+            <div class="customerService part part880">
+                <header class="partHeader">客户服务</header></header>
+                <div class="service flex flex-direction-column space-between">
+                    <ul class="service_1 flex space-around flex-column-center">
+                        <li>
+                            <div ref="customerSatisfactionChart" class="chart"></div>
+                        </li>
+                        <li>
+                            <div ref="processingSatisfactionChart" class="chart"></div>
+                        </li>
+                        <li>
+                            <div ref="ontimeDeliveryRateChart" class="chart"></div>
+                        </li>
+                    </ul>
+                    <ul class="service_2 flex space-between">
+                        <li>
+                            <header class="chartHeader"><span>客户满意度趋势</span></header>
+                            <div ref="customerSatisfactionTrendChart" class="chart"></div>
+                        </li>
+                        <li>
+                            <header class="chartHeader"><span>客户准时交付率年度趋势</span></header>
+                            <div ref="ontimeDeliveryRateTrendChart" class="chart"></div>
+                        </li>
+                    </ul>
+                    <div class="service_3">
+                        <header class="chartHeader"><span>客户服务量年度趋势</span></header>
+                        <div class="flex space-between flex-row-center flex-column-center">
+                            <div class="f">
+                                <div class="m">
+                                    <span>1000</span>
+                                </div>
+                            </div>
+                            <div class="s">
+                                <div ref="customerServiceVolumeTrendChart" class="chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_2 part960">
+                <!-- 员工 -->
+                <div class="staff">
+                    <header class="partHeader header-bg">员工</header>
+                    <ul class="sta main-bg flex space-between">
+                        <li>
+                            <header class="chartHeader"><span>专业经验年限员工分布及占比</span></header>
+                            <div ref="zyjynxygfbzbChart" class="chart"></div>
+                        </li>
+                        <li>
+                            <header class="chartHeader"><span>员工文化程度统计</span></header>
+                            <div ref="StatisticsOfEmployeeEducationLevelChart" class="chart"></div>
+                        </li>
+                        <li>
+                            <header class="chartHeader"><span>员工岗位分布及占比</span></header>
+                            <div ref="employeePositionsChart" class="chart"></div>
+                        </li>
+                        <li>
+                            <header class="chartHeader"><span>专业人才统计</span></header>
+                            <div ref="zyrctjChart" class="chart"></div>
+                        </li>
+                    </ul>
+                    <footer class="footer-bg"></footer>
+                </div>
+                <!-- 质检 -->
+                <div class="inspector">
+                    <header class="partHeader header-bg">质检</header>
+                    <ul class="inspect main-bg flex space-between">
+                        <li>
+                            <header class="chartHeader"><span>成品百米缺陷率</span></header>
+                            <div ref="cpbmqxlChart" class="chart"></div>
+                        </li>
+                        <li>
+                            <header class="chartHeader"><span>原材料批次合格率趋势</span></header>
+                            <div ref="yclpchglChart" class="chart"></div>
+                        </li>
+                    </ul>
+                    <footer class="footer-bg"></footer>
+                </div>
+            </div>
+            <div class="operate part1954">
+                <header class="partHeader-lg flex">
+                    <div class="header-bg-1"></div>
+                    <div class="header-bg-2"></div>
+                    <div class="header-bg-3"></div>
+                </header>
+                <div class="partMain-lg oper flex">
+                    <div class="main-lg-1 operate_l flex flex-direction-column space-between">
+                        <div class="energy_count">
+                            <header class="chartHeader"><span>本年度能源消耗</span></header>
+                            <ul class="flex space-between flex-column-center">
+                                <li class="flex">
+                                    <img src="./assets/electric.png">
+                                    <span>
+                                        <strong>61561</strong>
+                                        <small>水（吨）</small>
+                                    </span>
+                                </li>
+                                <li class="flex">
+                                    <img src="./assets/water.png">
+                                    <span>
+                                        <strong>9960504</strong>
+                                        <small>电（度）</small>
+                                    </span>
+                                </li>
+                                <li class="flex">
+                                    <img src="./assets/steam.png">
+                                    <span>
+                                        <strong>26454</strong>
+                                        <small>蒸汽（吨）</small>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="energy_chart">
+                            <header class="chartHeader"><span>电能耗月度趋势</span></header>
+                            <div ref="electricConsumeMonthTrendSet" class="chart"></div>
+                        </div>
+                        <div class="energy_chart">
+                            <header class="chartHeader"><span>硫化OEE月度趋势</span></header>
+                            <div ref="vulcanizationOeeMonthTrendSet" class="chart"></div>
+                        </div>
+                        <div class="energy_chart">
+                            <header class="chartHeader"><span>密炼OEE月度趋势</span></header>
+                            <div ref="internalMixingMonthTrendSet" class="chart"></div>
+                        </div>
+                    </div>
+                    <div class="main-lg-2 operate_r flex flex-direction-column space-between">
+                        <div class="operate_r_chart">
+                            <header class="chartHeader"><span>水能耗月度趋势</span></header>
+                            <div ref="waterMonthTrendSet" class="chart"></div>
+                        </div>
+                        <div class="operate_r_chart">
+                            <header class="chartHeader"><span>气能耗月度趋势</span></header>
+                            <div ref="steamMonthTrendSet" class="chart"></div>
+                        </div>
+                        <div class="operate_r_chart">
+                            <header class="chartHeader"><span>硫化产量月度趋势（面积）</span></header>
+                            <div ref="vulcanizationYieldMonthTrendSet" class="chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="partFooter-lg flex">
+                    <div class="footer-bg-1"></div>
+                    <div class="footer-bg-2"></div>
+                    <div class="footer-bg-3"></div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./js/jquery-3.3.1.min.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js/echarts.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/a413107719/echarts-pie-roundcap/echarts.simple.min.js"></script> -->
+<!-- <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+<script src="https://cdn.highcharts.com.cn/highcharts/highcharts-3d.js"></script> -->
+<script src="./js/world.js"></script>
+<script src="./js/nameMap.js"></script>
+<script src="./js/chartSet.js"></script>
+<script src="./js/worldData.js"></script>
+<script src="./js/swiper-bundle.min.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/index.js"></script>

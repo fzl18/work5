@@ -1,0 +1,327 @@
+/**
+ * @description 全局样式
+ */
+
+@import './normalize.scss';
+@import './transition.scss';
+@import './loading.scss';
+@import './themes/glory.scss';
+@import './themes/green.scss';
+@import './themes/ocean.scss';
+@import './themes/white.scss';
+@import './themes/cloud.scss';
+
+$base: '.core';
+
+@mixin base-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(144, 147, 153, 0.3);
+    border: 3px solid transparent;
+    border-radius: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(144, 147, 153, 0.5);
+  }
+}
+
+html {
+  body {
+    position: relative;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'PingFang SC', Arial, 'Microsoft YaHei', sans-serif;
+    font-size: $base-font-size-default;
+    color: #2c3e50;
+    // background: #f6f8f9;
+    background: rgb(240 245 252);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @include base-scrollbar;
+
+    * {
+      box-sizing: border-box;
+      @include base-scrollbar;
+    }
+
+    /*a标签 */
+    a {
+      color: $base-color-blue;
+      text-decoration: none;
+    }
+
+    /*图片 */
+    img {
+      object-fit: cover;
+
+      &[src=''],
+      &:not([src]) {
+        opacity: 0;
+      }
+    }
+
+    /*图标 */
+    svg,
+    i {
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    /*el-button按钮 */
+    span + span,
+    a + a,
+    span + a {
+      .el-button {
+        margin-left: 10px;
+      }
+    }
+
+    /*el-scrollbar滚动条 */
+    .el-scrollbar {
+      height: 100%;
+    }
+
+    /*el-form表单 */
+    .el-form--label-top {
+      .el-form-item__label {
+        padding: 0;
+      }
+    }
+
+    /*  el-badge */
+    .el-badge__content {
+      border: 0;
+    }
+
+    /* el-tag */
+    .el-tag + .el-tag {
+      margin-left: 10px;
+    }
+
+    /* el-alert */
+    .el-alert {
+      margin: 0 0 $base-padding 0;
+      &--success.is-light {
+        color: rgba(0, 0, 0, 0.85);
+        background-color: #f6ffed;
+        border: 1px solid #b7eb8f;
+      }
+    }
+
+    /* markdown编辑器*/
+    .editor-toolbar {
+      .no-mobile,
+      .fa-question-circle {
+        display: none;
+      }
+    }
+
+    /* el-divider间隔线 */
+    .el-divider--horizontal {
+      margin: 8px 0 $base-padding + 8px 0;
+
+      .el-divider__text {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    /* el-image-viewer表格大图展示*/
+    .el-image-viewer {
+      &__close {
+        .el-icon-circle-close {
+          color: $base-color-white;
+        }
+      }
+    }
+
+    .vue-admin {
+      .app-main-container {
+        @include base-scrollbar;
+
+        > [class*='-container'] {
+          padding: $base-padding;
+          // background: $base-color-white;
+        }
+      }
+    }
+
+    /* nprogress进度条 */
+    #nprogress {
+      position: fixed;
+      z-index: $base-z-index;
+
+      .bar {
+        background: $base-color-blue !important;
+      }
+
+      .peg {
+        box-shadow: 0 0 10px $base-color-blue, 0 0 5px $base-color-blue !important;
+      }
+    }
+
+    /* el-table表格 */
+    .el-table {
+      .el-table__body-wrapper {
+        @include base-scrollbar;
+      }
+
+      th {
+        background: #ADB7C0!important;
+      }
+
+      td,
+      th {
+        position: relative;
+        box-sizing: border-box;
+        padding: 7.5px 0;
+
+        .cell {
+          font-size: $base-font-size-default;
+          font-weight: normal;
+          color: #606266;
+
+          .el-image {
+            width: 50px;
+            height: 50px;
+            border-radius: $base-border-radius;
+          }
+        }
+      }
+      .el-table__header{
+        th{
+          .cell{
+            color: #fff;
+          }
+        }
+      }   
+    }
+
+    /* el-pagination分页 */
+    .el-pagination {
+      padding: 2px 5px;
+      margin: $base-padding 0 0 0;
+      font-weight: normal;
+      color: $base-color-black;
+      text-align: center;
+    }
+
+    /* el-menu菜单开始 */
+    .el-menu {
+      user-select: none;
+    }
+
+    /* el-dialog 弹窗 */
+    @media (max-width: 576px) {
+      .el-dialog {
+        width: auto !important;
+        margin: 10px;
+      }
+    }
+
+    .el-dialog,
+    .el-message-box {
+      &__footer {
+        padding: $base-padding;
+        text-align: right;
+      }
+
+      &__content {
+        padding: $base-padding;
+      }
+    }
+
+    /* el-card卡片 */
+    .el-card {
+      margin-bottom: $base-padding;
+
+      &__body {
+        padding: $base-padding;
+      }
+    }
+
+    /* el-input */
+    .el-input__inner, .el-textarea__inner {
+      box-shadow: 0px 2px 4px rgb(0 0 0 / 10%);
+    }
+
+  }
+}
+
+.rowWarn {
+  .cell {
+    color: red !important;
+  }
+}
+.el-form-item__content{
+  font-size: 12px!important;
+  word-break: break-all;
+  // width: 65%;
+}
+
+
+.el-tree-node__content{
+  height:32px !important;
+}
+
+.el-tree-node__content > .el-tree-node__expand-icon{
+  background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAG1BMVEUAAACWnKKWnKKTm5+WnKKWnKGVm6KWnaKXnaGUn3P4AAAACXRSTlMA/79A1Jtzj3guDLzdAAAARUlEQVR4nGNAAsxFSmCgasDAJggFCQxMwsZgYKgAZEIUMkKYLAJwJiN+JgvIKAcwkxHEFCBOG4oVSBZDmRwwRzYgOx0BAAJsCuxBGv1DAAAAAElFTkSuQmCC') ;
+  transition: none;
+  width: 20px;
+  height: 20px;
+  transform: scale(0.8);
+  margin-right: 5px;
+  
+}
+.el-tree-node__expand-icon.expanded{
+  background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAG1BMVEUAAACWnKKWnKKTm5+WnKKWnKGVm6KWnaKXnaGUn3P4AAAACXRSTlMA/79A1Jtzj3guDLzdAAAAO0lEQVR4nGNAAsxFSmCgasDAJggFCQxMwsZgYKgAZEIUMpLKZAEZ5QBmMoKYAiSbgI3JAXNkA7LTEQAAxZIKXmbTBEQAAAAASUVORK5CYII=');
+  transition: none;
+  width: 20px;
+  height: 20px;
+  transform:scale(0.8) rotate(0deg) !important;
+  margin-right: 5px;
+  
+}
+.el-tree-node__expand-icon.is-leaf{
+  background: transparent;
+}
+
+.category {
+  width: 350px !important;
+
+}
+.el-checkbox__label{
+  font-size: 12px !important;
+  
+}
+.checkbox {
+  .el-checkbox__label {
+    font-weight: bold !important;     
+  }
+  .el-checkbox__input.is-checked + .el-checkbox__label{
+    color: #005ae0!important;
+  }
+  .el-checkbox__input.is-checked .el-checkbox__inner{
+    background-color:#005ae0!important; 
+    border-color: #005ae0!important; 
+  }
+}
+
+.el-dialog__header{
+  border-bottom: 1px solid #E7E7E7;
+  
+}
+.el-dialog__title{
+  font-size: 14px !important;
+}

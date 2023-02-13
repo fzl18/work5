@@ -1,0 +1,31 @@
+.form-data {
+  width: 100%;
+
+  padding-left: 33px;
+  padding-right: 33px;
+
+  .upload-pic .tip {
+    margin: 10px 0 0 20px;
+    display: inline-block;
+    color: darkgray;
+  }
+
+  .edit-diversity-item {
+    &:not(.submit-item) {
+      // width: 20%;
+      margin-right: 25px;
+
+      input {
+        border-radius: 3px;
+      }
+    }
+
+    // .el-form-item__content {
+    //   box-shadow: 1px 3px 9px -4px #888888;
+    // }
+
+    &:nth-child(4n + 4) {
+      margin-right: 0px;
+    }
+  }
+}

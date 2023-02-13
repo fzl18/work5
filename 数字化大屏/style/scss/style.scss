@@ -1,0 +1,1147 @@
+@import "./variable.scss";
+@import "./common.scss";
+
+.container {
+    width: 12528px;
+    height: 1218px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: $bgcolor;
+    .header-container {
+        position: absolute;
+        width: 2560px;
+        height: 118px;
+        left: calc(50% - 1280px);
+        top: 60px;
+        background-image: url("../../assets/title.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        font-size: 56px;
+        line-height: 118px;
+        color: #d2ab5d;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    .left {
+        width: 4014px;
+        height: 100%;
+        .companyProfile {
+            .top {
+                width: 780px;
+                height: 442px;
+                margin: 50px auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .g,
+                .y {
+                    height: 203px;
+                    padding: 0 28px;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center bottom;
+                    li {
+                        p {
+                            text-align: center;
+                            font-size: 40px;
+                            line-height: 30px;
+                        }
+                        small {
+                            display: inline-block;
+                            width: 100%;
+                            margin-top: 15px;
+                            color: rgba(255, 255, 255, 0.7);
+                            text-align: center;
+                            font-size: 18px;
+                            line-height: 30px;
+                        }
+                        img {
+                            margin: 0 auto;
+                        }
+                    }
+                }
+                .g {
+                    background-image: url("../../assets/companyProfile_green.png");
+                    li {
+                        width: 191px;
+                        height: 169px;
+                        background-image: url("../../assets/companyProfile_green_data.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center bottom;
+                        p {
+                            color: #83f9f8;
+                        }
+                    }
+                }
+                .y {
+                    background-image: url("../../assets/companyProfile_yellow.png");
+                    li {
+                        width: 191px;
+                        height: 169px;
+                        background-image: url("../../assets/companyProfile_yellow_data.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center bottom;
+                        p {
+                            color: #f0c85c;
+                        }
+                    }
+                }
+            }
+            .bottom {
+                padding: 0 50px;
+                .a {
+                    width: 783px;
+                    height: 372px;
+                    .c {
+                        flex: 1;
+                    }
+                    .rate {
+                        width: 278px;
+                        background-image: url(../../assets/rise-rate.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center bottom;
+                        padding-top: 84px;
+                        small {
+                            display: inline-block;
+                            width: 100%;
+                            text-align: center;
+                            color: #9bc5f1;
+                            font-size: 22px;
+                            font-weight: bold;
+                            line-height: 36px;
+                            -webkit-line-clamp: 2;
+                            background-image: -webkit-linear-gradient(
+                                bottom,
+                                rgba(0, 121, 214, 1),
+                                rgba(155, 197, 241, 1)
+                            );
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
+                        p {
+                            font-size: 38px;
+                            text-align: center;
+                            line-height: 56px;
+                            font-weight: bold;
+                            letter-spacing: 2px;
+                            -webkit-line-clamp: 2;
+                            background-image: -webkit-linear-gradient(
+                                bottom,
+                                rgba(0, 121, 214, 1),
+                                rgba(155, 197, 241, 1)
+                            );
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+        .left_2 {
+            margin-top: 90px;
+            margin-bottom: 87px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .socialContribution {
+                height: 421px;
+                .social {
+                    height: 296px;
+                    padding: 45px 35px 0px 35px;
+                    .social_1 {
+                        li {
+                            height: 116px;
+                            background-image: url(../../assets/left2_data_bg.png);
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            text-align: center;
+                            p {
+                                padding-top: 10px;
+                                big {
+                                    color: #fff;
+                                    font-size: 32px;
+                                }
+                                small {
+                                    color: #fff;
+                                    font-size: 16px;
+                                }
+                            }
+                            span {
+                                display: inline-block;
+                                font-size: 14px;
+                                color: rgba(255, 255, 255, 0.7);
+                            }
+                        }
+                    }
+                }
+            }
+            .greenIndex {
+                height: 590px;
+                .green {
+                    height: 465px;
+                    .green_1 {
+                        padding: 35px 35px 40px 35px;
+                        .p {
+                            header {
+                                color: rgba(228, 238, 255, 0.8);
+                                font-size: 20px;
+                                padding-bottom: 8px;
+                            }
+                            main {
+                                span {
+                                    display: inline-block;
+                                    width: 41px;
+                                    height: 53px;
+                                    line-height: 53px;
+                                    margin-right: 7px;
+                                    font-size: 38px;
+                                    color: #f0c85c;
+                                    text-indent: 8px;
+                                    background-image: url(../../assets/font_bg.png);
+                                    background-size: 100% 100%;
+                                    background-repeat: no-repeat;
+                                }
+                            }
+                        }
+                    }
+                    .green_2 {
+                        height: 302px;
+                        padding: 0 35px;
+                        .green_line {
+                            width: 534px;
+                        }
+                        .green_pie {
+                            width: 211px;
+                        }
+                    }
+                }
+            }
+        }
+        .technology {
+            .tech {
+                // padding: 50px;
+                .tech_1 {
+                    width: 440px;
+                    padding: 50px 0 50px 50px;
+                    li {
+                        height: 71px;
+                        background-image: url(../../assets/tech_bg.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        margin-bottom: 19px;
+                        line-height: 71px;
+                        .span {
+                            font-size: 24px;
+                            color: #f0c85c;
+                            padding: 0 30px;
+                            white-space: nowrap;
+                        }
+                        .big {
+                            font-size: 40px;
+                            font-weight: bold;
+                            color: #fefefe;
+                            letter-spacing: 1px;
+                            padding: 0 5px;
+                        }
+                        .small {
+                            font-size: 24px;
+                            font-weight: bold;
+                            color: rgba(254, 254, 254, 0.5);
+                            letter-spacing: 1px;
+                            line-height: 78px;
+                        }
+                    }
+                    .dashboard{
+                        height: 180px;
+                    }
+                }
+                .tech_2 {
+                    // width: 570px;
+                    padding-top: 50px;
+                    padding-right: 50px;
+                    // 轮播
+                    .swiper-container {
+                        width: 570px;
+                        margin-bottom: 12px;
+                        position: relative;
+                        .swiper-slide {
+                            width: 245px;
+                            height: 347px;
+                            text-align: center;
+                            background-image: url(../../assets/tech_swipper.png);
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            .img {
+                                width: 210px;
+                                height: 300px;
+                                overflow: hidden;
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        //音乐遮罩
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 100px;
+                            height: 347px;
+                            left: 0;
+                            z-index: 9;
+                            background: -webkit-gradient(
+                                linear,
+                                left,
+                                right,
+                                color-stop(0%, rgba(18, 18, 18, 1)),
+                                color-stop(100%, rgba(18, 18, 18, 0))
+                            );
+                            background: -webkit-linear-gradient(left, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 0) 100%);
+                            background: linear-gradient(to right, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 0) 100%);
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 100px;
+                            height: 347px;
+                            right: 0;
+                            top: 0;
+                            z-index: 9;
+                            background: -webkit-gradient(
+                                linear,
+                                right,
+                                left,
+                                color-stop(0%, rgba(18, 18, 18, 1)),
+                                color-stop(100%, rgba(18, 18, 18, 0))
+                            );
+                            background: -webkit-linear-gradient(
+                                right,
+                                rgba(18, 18, 18, 1) 0%,
+                                rgba(18, 18, 18, 0) 100%
+                            );
+                            background: linear-gradient(to left, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 0) 100%);
+                        }
+                    }
+                    //时间轴
+                    .timeline {
+                        margin: 0 auto;
+                        width: 560px;
+                        height: 560px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-image: url(../../assets/timeline_bg.png);
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                        .content {
+                            margin-top: 10px;
+                            margin-left: 6px;
+                            width: 268px;
+                            height: 268px;
+                            border-radius: 50%;
+                            background: linear-gradient(
+                                to top,
+                                rgba(6, 138, 230, 0.6) 0%,
+                                rgba(3, 145, 255, 0.05) 100%
+                            );
+                            position: relative;
+                            overflow: hidden;
+                            &::before {
+                                content: "";
+                                float: left;
+                                width: 134px;
+                                height: 268px;
+                                background: rgba(0, 0, 0, 0);
+                                -webkit-clip-path: polygon(
+                                    99% 0%,
+                                    92% 0%,
+                                    86% 0%,
+                                    80% 0%,
+                                    73% 1%,
+                                    67% 2%,
+                                    60% 3%,
+                                    54% 4%,
+                                    48% 6%,
+                                    44% 8%,
+                                    38% 10%,
+                                    32% 12%,
+                                    28% 14%,
+                                    23% 17%,
+                                    19% 20%,
+                                    16% 23%,
+                                    11% 26%,
+                                    8% 29%,
+                                    5% 33%,
+                                    2% 39%,
+                                    0% 46%,
+                                    0% 55%,
+                                    3% 61%,
+                                    7% 68%,
+                                    12% 73%,
+                                    18% 78%,
+                                    24% 82%,
+                                    30% 85%,
+                                    39% 88%,
+                                    46% 91%,
+                                    52% 93%,
+                                    59% 94%,
+                                    68% 96%,
+                                    75% 97%,
+                                    81% 98%,
+                                    87% 99%,
+                                    94% 99%,
+                                    99% 99%,
+                                    0 100%,
+                                    0 0,
+                                    100% 0
+                                );
+                                clip-path: polygon(
+                                    99% 0%,
+                                    92% 0%,
+                                    86% 0%,
+                                    80% 0%,
+                                    73% 1%,
+                                    67% 2%,
+                                    60% 3%,
+                                    54% 4%,
+                                    48% 6%,
+                                    44% 8%,
+                                    38% 10%,
+                                    32% 12%,
+                                    28% 14%,
+                                    23% 17%,
+                                    19% 20%,
+                                    16% 23%,
+                                    11% 26%,
+                                    8% 29%,
+                                    5% 33%,
+                                    2% 39%,
+                                    0% 46%,
+                                    0% 55%,
+                                    3% 61%,
+                                    7% 68%,
+                                    12% 73%,
+                                    18% 78%,
+                                    24% 82%,
+                                    30% 85%,
+                                    39% 88%,
+                                    46% 91%,
+                                    52% 93%,
+                                    59% 94%,
+                                    68% 96%,
+                                    75% 97%,
+                                    81% 98%,
+                                    87% 99%,
+                                    94% 99%,
+                                    99% 99%,
+                                    0 100%,
+                                    0 0,
+                                    100% 0
+                                );
+                                shape-outside: polygon(
+                                    99% 0%,
+                                    92% 0%,
+                                    86% 0%,
+                                    80% 0%,
+                                    73% 1%,
+                                    67% 2%,
+                                    60% 3%,
+                                    54% 4%,
+                                    48% 6%,
+                                    44% 8%,
+                                    38% 10%,
+                                    32% 12%,
+                                    28% 14%,
+                                    23% 17%,
+                                    19% 20%,
+                                    16% 23%,
+                                    11% 26%,
+                                    8% 29%,
+                                    5% 33%,
+                                    2% 39%,
+                                    0% 46%,
+                                    0% 55%,
+                                    3% 61%,
+                                    7% 68%,
+                                    12% 73%,
+                                    18% 78%,
+                                    24% 82%,
+                                    30% 85%,
+                                    39% 88%,
+                                    46% 91%,
+                                    52% 93%,
+                                    59% 94%,
+                                    68% 96%,
+                                    75% 97%,
+                                    81% 98%,
+                                    87% 99%,
+                                    94% 99%,
+                                    99% 99%,
+                                    0 100%,
+                                    0 0,
+                                    100% 0
+                                );
+                            }
+                            .fr {
+                                content: "";
+                                float: right;
+                                width: 134px;
+                                height: 268px;
+                                background: rgba(0, 0, 0, 0);
+                                clip-path: polygon(
+                                    0% 0%,
+                                    3% 0%,
+                                    8% 0%,
+                                    12% 0%,
+                                    16% 0%,
+                                    20% 1%,
+                                    26% 1%,
+                                    32% 2%,
+                                    36% 3%,
+                                    41% 4%,
+                                    45% 5%,
+                                    50% 7%,
+                                    54% 8%,
+                                    59% 10%,
+                                    63% 11%,
+                                    68% 13%,
+                                    73% 16%,
+                                    77% 18%,
+                                    81% 21%,
+                                    85% 24%,
+                                    88% 27%,
+                                    92% 31%,
+                                    95% 35%,
+                                    96% 39%,
+                                    98% 43%,
+                                    99% 48%,
+                                    99% 52%,
+                                    98% 57%,
+                                    96% 62%,
+                                    93% 66%,
+                                    90% 70%,
+                                    86% 74%,
+                                    80% 79%,
+                                    73% 83%,
+                                    67% 86%,
+                                    60% 89%,
+                                    53% 91%,
+                                    44% 94%,
+                                    35% 96%,
+                                    29% 97%,
+                                    22% 98%,
+                                    16% 99%,
+                                    8% 99%,
+                                    2% 99%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 100%,
+                                    100% 100%,
+                                    100% 0,
+                                    0 0
+                                );
+                                -webkit-clip-path: polygon(
+                                    0% 0%,
+                                    3% 0%,
+                                    8% 0%,
+                                    12% 0%,
+                                    16% 0%,
+                                    20% 1%,
+                                    26% 1%,
+                                    32% 2%,
+                                    36% 3%,
+                                    41% 4%,
+                                    45% 5%,
+                                    50% 7%,
+                                    54% 8%,
+                                    59% 10%,
+                                    63% 11%,
+                                    68% 13%,
+                                    73% 16%,
+                                    77% 18%,
+                                    81% 21%,
+                                    85% 24%,
+                                    88% 27%,
+                                    92% 31%,
+                                    95% 35%,
+                                    96% 39%,
+                                    98% 43%,
+                                    99% 48%,
+                                    99% 52%,
+                                    98% 57%,
+                                    96% 62%,
+                                    93% 66%,
+                                    90% 70%,
+                                    86% 74%,
+                                    80% 79%,
+                                    73% 83%,
+                                    67% 86%,
+                                    60% 89%,
+                                    53% 91%,
+                                    44% 94%,
+                                    35% 96%,
+                                    29% 97%,
+                                    22% 98%,
+                                    16% 99%,
+                                    8% 99%,
+                                    2% 99%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 100%,
+                                    100% 100%,
+                                    100% 0,
+                                    0 0
+                                );
+                                shape-outside: polygon(
+                                    0% 0%,
+                                    3% 0%,
+                                    8% 0%,
+                                    12% 0%,
+                                    16% 0%,
+                                    20% 1%,
+                                    26% 1%,
+                                    32% 2%,
+                                    36% 3%,
+                                    41% 4%,
+                                    45% 5%,
+                                    50% 7%,
+                                    54% 8%,
+                                    59% 10%,
+                                    63% 11%,
+                                    68% 13%,
+                                    73% 16%,
+                                    77% 18%,
+                                    81% 21%,
+                                    85% 24%,
+                                    88% 27%,
+                                    92% 31%,
+                                    95% 35%,
+                                    96% 39%,
+                                    98% 43%,
+                                    99% 48%,
+                                    99% 52%,
+                                    98% 57%,
+                                    96% 62%,
+                                    93% 66%,
+                                    90% 70%,
+                                    86% 74%,
+                                    80% 79%,
+                                    73% 83%,
+                                    67% 86%,
+                                    60% 89%,
+                                    53% 91%,
+                                    44% 94%,
+                                    35% 96%,
+                                    29% 97%,
+                                    22% 98%,
+                                    16% 99%,
+                                    8% 99%,
+                                    2% 99%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 98%,
+                                    0% 100%,
+                                    100% 100%,
+                                    100% 0,
+                                    0 0
+                                );
+                            }
+                            .title {
+                                height: 50%;
+                                padding: 60px;
+                                text-align: center;
+                                font-size: 33px;
+                            }
+                            .desc {
+                                height: 50%;
+                                text-align: center;
+                                line-height: 1.7em;
+                                font-size: 13px;
+                            }
+                        }
+                        #sum {
+                            width: 300px;
+                            height: 300px;
+                            position: absolute;
+                            box-sizing: border-box;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            li {
+                                text-align: center;
+                                list-style-type: none;
+                            }
+                            #second {
+                                position: absolute;
+                                width: 400px;
+                                height: 400px;
+                                box-sizing: border-box;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                transition: all 1s;
+                                ul {
+                                    position: relative;
+                                    left: -40px;
+                                    top: -5px;
+                                    li {
+                                        position: absolute;
+                                        width: 80px;
+                                        height: 20px;
+                                        line-height: 20px;
+                                        font-size: 12px;
+                                    }
+                                    .active span {
+                                        padding: 5px 10px;
+                                        background-image: url(../../assets/time_bg.png);
+                                        background-size: 100% 100%;
+                                        font-size: 14px;
+                                        transition: all 1s;
+                                    }
+                                }
+                            }
+                            #minute {
+                                position: absolute;
+                                width: 300px;
+                                height: 300px;
+                                box-sizing: border-box;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                transition: all 1s;
+                                .timelineTick::after {
+                                    content: "";
+                                    width: 10px;
+                                    height: 2px;
+                                    background-color: #0483e1;
+                                    position: absolute;
+                                    top: 9px;
+                                    left: 35px;
+                                }
+                                .timelineTickActive::after {
+                                    content: "";
+                                    width: 15px;
+                                    height: 4px;
+                                    background-color: #0e4c68;
+                                    position: absolute;
+                                    top: 8px;
+                                    left: 30px;
+                                }
+                                ul {
+                                    position: relative;
+                                    left: -38px;
+                                    top: -5px;
+                                    li {
+                                        position: absolute;
+                                        width: 80px;
+                                        height: 20px;
+                                    }
+                                    li:nth-child(1)::before {
+                                        content: "";
+                                        position: absolute;
+                                        width: 8px;
+                                        height: 8px;
+                                        border-radius: 50%;
+                                        background-color: #fff;
+                                        top: calc(50% - 5px);
+                                        left: 33px;
+                                        border: 2px solid #0091f6;
+                                        z-index: 99;
+                                    }
+                                }
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    width: 332px;
+                                    height: 332px;
+                                    border-radius: 50%;
+                                    top: -12px;
+                                    left: -15px;
+                                    // border: 1px solid #143a70;
+                                    border: 1px solid #192c2f;
+                                }
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    width: 300px;
+                                    height: 300px;
+                                    border-radius: 50%;
+                                    top: 4px;
+                                    left: 2px;
+                                    border: 1px solid #192c2f;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .research {
+            .re {
+                padding: 50px 35px 0 35px;
+                height: calc(100% - 85px);
+                .re_1 {
+                    height: 295px;
+                    .l {
+                        flex: 1;
+                        li {
+                            width: 350px;
+                            height: 85px;
+                            background: linear-gradient(
+                                to right,
+                                rgba(211, 172, 95, 0.4) 0%,
+                                rgba(54, 43, 18, 0.4) 100%
+                            );
+                            position: relative;
+                            border: 1px solid #eed986;
+                            padding: 0 20px;
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                width: 10px;
+                                height: 100%;
+                                left: 0;
+                                top: 0;
+                                background-color: #9b7121;
+                            }
+                            img {
+                                display: inline-block;
+                                width: 45px;
+                                height: 45px;
+                            }
+                            span {
+                                display: inline-block;
+                                width: 190px;
+                                font-size: 18px;
+                            }
+                            p {
+                                width: 40px;
+                                font-size: 26px;
+                            }
+                        }
+                    }
+                    .r {
+                        flex: 1;
+                    }
+                }
+                .re_2 {
+                    height: 295px;
+                    .c {
+                        width: 390px;
+                    }
+                }
+                .re_3 {
+                    height: 245px;
+                    .university {
+                        margin-top: 20px;
+                        li {
+                            width: 142px;
+                            height: 210px;
+                            background-image: url(../../assets/university_bg.png);
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            text-align: center;
+                            .u_logo {
+                                width: 62px;
+                                height: 62px;
+                                margin: 0 auto;
+                                margin-top: 18px;
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                            p {
+                                height: 140px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .center {
+        width: 4500px;
+        height: 100%;
+        padding: 0 70px;
+        .overview {
+            height: 185px;
+        }
+        .customer {
+            .overview {
+                padding-top: 60px;
+                padding-bottom: 35px;
+                li {
+                    width: 178px;
+                    span {
+                        font-size: 20px;
+                        width: 100%;
+                        color: #eff0f1;
+                        padding-left: 22px;
+                        display: inline-block;
+                        position: relative;
+                        &::before {
+                            content: "";
+                            width: 12px;
+                            height: 16px;
+                            top: calc(50% - 8px);
+                            left: 0;
+                            background-color: $basicColor1;
+                            position: absolute;
+                        }
+                    }
+                    div {
+                        height: 57px;
+                        margin-top: 10px;
+                        text-align: center;
+                        line-height: 50px;
+                        background-image: url("../../assets/data_bg.png");
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                        font-size: 36px;
+                        color: $basicColor2;
+                    }
+                }
+            }
+            .c_chart {
+                height: 780px;
+                padding-top: 40px;
+                flex-wrap: wrap;
+                .c_chart_li {
+                    width: 480px;
+                    height: 310px;
+                }
+            }
+        }
+        .map {
+            width: 2002px;
+            position: relative;
+            .mapChart {
+                margin-top: 200px;
+                height: calc(100% - 200px);
+            }
+            .legend1 {
+                position: absolute;
+                width: 168px;
+                height: 428px;
+                left: 0;
+                bottom: 90px;
+                flex-direction: column;
+                img {
+                    width: 100%;
+                }
+            }
+            .legend2 {
+                position: absolute;
+                width: 264px;
+                height: 40px;
+                left: calc(50% - 132px);
+                bottom: 90px;
+                div {
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 18px;
+                    img {
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                }
+            }
+            .radar {
+                position: absolute;
+                width: 360px;
+                height: 360px;
+                bottom: 90px;
+                left: 240px;
+            }
+        }
+        .sales {
+            .overview {
+                padding-top: 25px;
+                li {
+                    flex: 1;
+                    height: 160px;
+                    .m {
+                        width: 148px;
+                        height: 120px;
+                        font-size: 38px;
+                        line-height: 120px;
+                        margin: 0 auto;
+                        text-align: center;
+                        background-image: url("../../assets/sales-box.png");
+                        background-position: center;
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                    }
+                    p {
+                        height: 40px;
+                        font-size: 18px;
+                        line-height: 40px;
+                        text-align: center;
+                    }
+                }
+            }
+            .s1 {
+                height: 200px;
+                margin-top: 40px;
+                .s1_chart {
+                    width: 490px;
+                }
+            }
+            .s2 {
+                height: 462px;
+                margin-top: 40px;
+                .s2_chart {
+                    width: 490px;
+                    .c {
+                        width: 100%;
+                        height: 50%;
+                    }
+                }
+            }
+        }
+    }
+    .right {
+        width: 4014px;
+        height: 100%;
+        .customerService {
+            .service {
+                height: 960px;
+                padding: 20px 35px;
+                .service_1 {
+                    height: 260px;
+                    li {
+                        width: 150px;
+                        height: 150px;
+                    }
+                }
+                .service_2 {
+                    height: 312px;
+                    li {
+                        width: 366px;
+                    }
+                }
+                .service_3 {
+                    height: 323px;
+                    .f {
+                        width: 270px;
+                        .m {
+                            width: 230px;
+                            height: 155px;
+                            margin: 0 auto;
+                            background-image: url(../../assets/customerService.png);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: bottom;
+                            text-align: center;
+                            span {
+                                display: inline-block;
+                                padding-top: 10px;
+                                color: #9bc5f1;
+                                font-size: 75px;
+                                -webkit-line-clamp: 2;
+                                background-image: -webkit-linear-gradient(
+                                    bottom,
+                                    rgba(0, 121, 214, 1),
+                                    rgba(155, 197, 241, 1)
+                                );
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                            }
+                        }
+                    }
+                    .s {
+                        width: 538px;
+                        height: 300px;
+                    }
+                }
+            }
+        }
+        .right_2 {
+            margin-top: 90px;
+            margin-bottom: 87px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .staff {
+                height: 620px;
+                .sta {
+                    height: 495px;
+                    padding: 35px 35px 0 35px;
+                    flex-wrap: wrap;
+                    align-items: flex-end;
+                    li{
+                        width: 422px;
+                        height: 213px;
+                    }
+                }
+            }
+            .inspector {
+                height: 380px;
+                .inspect {
+                    height: 255px;
+                    padding: 35px 35px 0 35px;
+                    li{
+                        width: 421px;
+                        height: 255px;
+                    }
+                }
+            }
+        }
+        .operate {
+            .oper{
+                .operate_l{
+                    padding: 35px 35px 0 35px;
+                    .energy_count{
+                        height: 166px;
+                        ul{
+                            height: 100%;
+                            li{
+                            height: 105px;
+                            img{
+                                height: 105px;
+                                margin-right: 10px;
+                            }
+                            strong{
+                                display: table-row;
+                                height: 50%;
+                                font-size: 34px;
+                                line-height: 55px;
+                                color: #f0c85c;
+                            }
+                            small{
+                                display: table-row;
+                                height: 50%;
+                                font-size: 18px;
+                                line-height: 50px;
+                                color: 'rgba(255,255,255,0.7)';
+                            }
+                        }
+                        }
+                    }
+                    .energy_chart{
+                        height: 200px;
+                    }
+                }
+                .operate_r{
+                    padding: 35px 35px 0 35px;
+                    .operate_r_chart{
+                        height: 263px;
+                    }
+                }
+            }
+        }
+    }
+}

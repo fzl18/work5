@@ -1,0 +1,157 @@
+.btTable ::v-deep {
+  td.el-table__cell {
+    border-bottom: none;
+  }
+
+  .el-form-item {
+    margin-bottom: 0;
+  }
+}
+
+.btTable {
+  &.tree-rows {
+    & ::v-deep {
+      .el-table__body-wrapper {
+        .el-table__body {
+
+          .cell {
+            display: flex;
+            width: 100%;
+            align-items: center;
+
+            .el-form-item {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .el-table__fixed-right {
+        .el-table__fixed-body-wrapper {
+          .el-table__cell {
+            .cell {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.el-form {
+  .el-form-item--mini.el-form-item {
+    margin-bottom: 0;
+  }
+
+  .el-input__inner {
+    box-shadow: none;
+  }
+
+  ::v-deep .el-form-item.is-error .avatar-uploader {
+    border-color: #ff4d4f;
+  }
+}
+
+.el-col {
+  margin: 12px 0;
+}
+
+.tab-item {
+  display: flex;
+
+  ::v-deep .el-col-15 {
+    width: 20%;
+  }
+
+  .bt-section__container {
+    margin-top: 0;
+  }
+
+  .flex-item {
+    flex: 1;
+
+    &.fixed-400 {
+      flex: 0 1 420px;
+    }
+
+    .el-cascader, .el-select {
+      width: 100%;
+    }
+
+    .area-map {
+      position: relative;
+      width: 100%;
+      margin: 0 0;
+      min-height: 400px;
+      //background-color: #2cc642;
+      .btn_area__reset {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+      }
+
+      .area__empty {
+        position: relative;
+        height: 450px;
+
+        .el-button {
+          position: absolute;
+          top: 206px;
+          width: 150px;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          font-size: 16px;
+
+          img {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            margin-right: 10px;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  label {
+    font-size: 12px;
+    color: #bfbfbf;
+  }
+
+  .value {
+    line-height: 22px;
+    min-height: 43px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #bfbfbf;
+  }
+
+  .pic {
+    padding: 10px 0;
+  }
+}
+
+.attachment {
+  label {
+    color: #bfbfbf;
+  }
+
+  .button {
+    margin: 0 20px;
+  }
+}
+
+.detail {
+  color: #8c8c8c;
+  line-height: 30px;
+}

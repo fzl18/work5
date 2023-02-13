@@ -1,0 +1,297 @@
+@charset "UTF-8";
+html,
+body {
+  font-family: "Microsoft YaHei", "微软雅黑", "黑体", "宋体";
+  color: #ffffff;
+}
+
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a,
+u {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  border: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.float_l {
+  float: left;
+}
+
+.float_r {
+  float: right;
+}
+
+.align_center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row-center {
+  justify-content: center;
+}
+
+.flex-column-center {
+  align-items: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.part {
+  height: 1041px;
+  background-image: url("../../assets/part_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-top: 90px;
+  margin-bottom: 87px;
+}
+
+.partHeader {
+  width: 100%;
+  height: 80px;
+  font-size: 40px;
+  line-height: 80px;
+  letter-spacing: 4px;
+  padding-left: 71px;
+}
+
+.header-bg {
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 1041px;
+  background-position: 0 0;
+}
+
+.main-bg {
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 1041px;
+  background-position: 0 -80px;
+}
+
+.footer-bg {
+  width: 100%;
+  height: 45px;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 1041px;
+  background-position: bottom left;
+}
+
+.partHeader-lg {
+  width: 100%;
+  height: 80px;
+  margin-top: 90px;
+}
+
+.partHeader-lg .header-bg-1 {
+  flex: 1;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 1596 1041px;
+  background-position: top left;
+}
+
+.partHeader-lg .header-bg-2 {
+  flex: 1;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 1096 1041px;
+  background-position: top center;
+}
+
+.partHeader-lg .header-bg-3 {
+  flex: 1;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 1096 1041px;
+  background-position: top right;
+}
+
+.partMain-lg {
+  width: 100%;
+  height: 916px;
+}
+
+.partMain-lg .main-lg-1 {
+  flex: 1;
+  height: 100%;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 1096 1041px;
+  background-position: 0 -80px;
+}
+
+.partMain-lg .main-lg-2 {
+  flex: 1;
+  height: 100%;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 1096 1041px;
+  background-position: right center;
+  background-position-y: -80px;
+}
+
+.partFooter-lg {
+  width: 100%;
+  height: 45px;
+}
+
+.partFooter-lg .footer-bg-1 {
+  flex: 1;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 1096 1041px;
+  background-position: bottom left;
+}
+
+.partFooter-lg .footer-bg-2 {
+  flex: 1;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 1096 1041px;
+  background-position: bottom center;
+}
+
+.partFooter-lg .footer-bg-3 {
+  flex: 1;
+  background-image: url(../../assets/part_bg.png);
+  background-repeat: no-repeat;
+  background-size: 1096 1041px;
+  background-position: bottom right;
+}
+
+.part880 {
+  width: 880px;
+}
+
+.part960 {
+  width: 960px;
+}
+
+.part1096 {
+  width: 1096px;
+}
+
+.part1114 {
+  width: 1114px;
+}
+
+.part1954 {
+  width: 1954px;
+}
+
+.chartHeader {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 15px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.chartHeader::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 18px);
+  height: 20px;
+  border-bottom: 1px solid #433520;
+  border-left: 1px solid #433520;
+  top: 12px;
+  left: -20px;
+}
+
+.chartHeader::after {
+  content: "";
+  width: 90px;
+  height: 10px;
+  background-image: url("../../assets/title_gradient.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.chartHeader span {
+  display: inline-block;
+  position: relative;
+}
+
+.chartHeader span::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fab754;
+  top: calc(50% - 4px);
+  left: -20px;
+}
+
+.chartHeader span::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 1px;
+  background-color: #433520;
+  top: calc(50%);
+  left: -35px;
+  margin: 0;
+  padding: 0;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+}
+
+.inMargin {
+  margin: 0 45px;
+}

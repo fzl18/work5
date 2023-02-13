@@ -1,0 +1,371 @@
+/**
+ * @description 佛系
+ */
+
+.theme-cloud {
+  $base-menu-background: #ffffff;
+  $base-menu-background-active: #008eec;
+  $base-color-blue: #008eec;
+  $base-menu-bg: #b2bbc4;
+  $base-border-radius: 6px;
+  :export {
+    base-font-size: 12px;
+  }
+  @mixin container {
+    background: $base-menu-background !important;
+  }
+
+  @mixin active {
+    &:hover {
+      color: $base-color-white !important;
+      background-color: $base-menu-background-active !important;
+    }
+
+    &.is-active {
+      color: $base-color-white !important;
+      background-color: $base-menu-background-active !important;
+    }
+  }
+
+  .logo-container-horizontal,
+  .logo-container-vertical {
+    @include container;
+  }
+
+  .logo-container-comprehensive {
+    @include container;
+  }
+
+  .logo-container-gallery {
+    .logo {
+      @include container;
+    }
+  }
+  .nav-bar-container.cloud {
+    // background-image: linear-gradient(to right, #24558f, #499cd7) !important;
+    background-color: #255CD8;
+    .logo,
+    .user-name,
+    .user-company {
+      color: #fff;
+      font-size: $base-font-size-small;
+    }
+    .logo {
+      font-size: 30px;
+    }
+  }
+
+  .gallery-bar-container.el-scrollbar {
+    .el-tabs {
+      .el-tabs__nav {
+        @include container;
+      }
+
+      .el-tabs__item.is-active,
+      .el-tabs__item:hover {
+        background: $base-menu-background-active !important;
+      }
+    }
+
+    .el-menu {
+      .el-menu-item.is-active,
+      .el-submenu__title.is-active,
+      .el-menu-item:hover,
+      .el-submenu__title:hover {
+        i {
+          color: $base-menu-background-active !important; //
+        }
+      }
+    }
+  }
+
+  .layout-container-vertical,
+  .layout-container-cloud,
+  .layout-container-horizontal,
+  .layout-container-comprehensive,
+  .layout-container-common {
+    .el-menu {
+      @include container;
+      .el-menu-item {
+        // &.is-active {
+        //   i {
+        //     color: #fff;
+        //   }
+        // }
+        i {
+          // color: #a7a7a7;
+        }
+      }
+    }
+
+    .side-bar-container,
+    .comprehensive-bar-container {
+      @include container;
+      .toggle {
+        i,
+        span {
+          color: #7d7d7d;
+          font-size: 16px;
+        }
+        span {
+          margin-left: 10px;
+          font-weight: bold;
+        }
+        i {
+          font-size: 20px;
+        }
+      }
+      .el-submenu__title {
+        background: $base-menu-bg !important;
+      }
+      .el-menu-item {
+        @include active;
+        background: $base-menu-bg !important;
+      }
+      .el-su.el-menu-itembmenu {
+        border-radius: $base-border-radius;
+      }
+
+      .el-menu--horizontal {
+        .el-menu-item,        
+        .el-submenu__title {
+          color: #848484 !important;
+          background: none !important;
+          border-radius: 6px;
+          &:hover {
+            background: #cdedff !important;
+            i,
+            span {
+              color: #307ec7 !important;
+              font-weight: bold !important;
+            }
+            i {
+              color: #0090ef !important;
+            }
+          }
+          &.is-active {
+            span,
+            i {
+              font-weight: bold;
+              color: #0090ef;
+            }
+            i {
+              color: #0090ef;
+            }
+          }
+        }
+        .el-submenu{
+          &.is-active{
+            > .el-submenu__title{
+              span,
+              i {
+                font-weight: bold;
+                color: #0090ef;
+              }
+              i {
+                color: #0090ef;
+              }
+            }
+          }
+        }
+        .el-menu--popup {
+          .el-menu-item,
+          .el-submenu__title {
+            span {
+              display: inline-block !important;
+              // color: #848484 !important;
+            }
+            &:hover {
+              background: #cdedff !important;
+              span {
+                color: #307ec7 !important;
+              }
+            }
+          }
+        }
+      }
+      &.is-collapse {
+        .el-menu-item,
+        .el-submenu__title {
+          border-radius: $base-border-radius !important;
+          &:hover {
+            background: #cdedff !important;
+          }
+        }
+
+        .el-menu--vertical {
+          //子菜单
+          ul.el-menu--popup {
+            .el-menu-item,
+            .el-submenu {
+              background: none !important;
+              color: #848484 !important;
+              &:hover {
+                background: #cdedff !important;
+                span,
+                i {
+                  color: #307ec7;
+                }
+                .el-menu--popup {
+                  .el-menu-item,
+                  .el-submenu {
+                    color: #848484 !important;
+                  }
+                }
+              }
+              .el-submenu__title {
+                background: none !important;
+                color: #848484 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .top-bar-container {
+    @include container;
+
+    .core-main {
+      @include container;
+
+      .el-menu.el-menu {
+        &--horizontal {
+          .el-submenu,
+          .el-menu-item {
+            &.is-active {
+              background-color: $base-menu-background-active !important;
+            }
+          }
+
+          > .el-menu-item {
+            &.is-active {
+              background-color: transparent !important;
+              border-bottom: 3px solid $base-menu-background-active !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tabs-bar-container {
+    background: $base-color-white;
+    border-top: 1px solid #f6f6f6;
+
+    .tabs-content {
+      .el-tabs__header {
+        .el-tabs__item {
+          &.is-active {
+            background: $base-color-blue !important;
+            border: 1px solid $base-color-blue !important;
+
+            &:hover {
+              color: $base-color-white !important;
+            }
+          }
+
+          &:hover {
+            color: $base-color-blue !important;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-bar-container {
+    .el-tabs__item.is-active,
+    .el-tabs__item:hover {
+      color: $base-color-blue !important;
+    }
+
+    .el-tabs__active-bar {
+      background-color: $base-color-blue !important;
+    }
+  }
+
+  .theme-setting {
+    background: $base-color-blue !important;
+  }
+  .app-main-container {
+    .app-main-height {
+      min-height: calc(
+        100vh - #{$base-nav-bar-height} - #{$base-tabs-bar-height}
+      ) !important;
+      &.no-top-gap{
+        padding-top: 0;
+      }
+    }
+    
+  }
+  .el-message-box{
+    position:relative;
+    text-align: center;
+    .el-message-box__title{
+      .el-message-box__status{
+        top:60px;
+        font-size: 50px !important;
+        color:#e94f4f
+      }
+      span{
+        position: relative;
+        top:30px;
+      }
+      // span{
+      //   position: absolute;
+      //   top:0;
+      //   left: 10px;
+      //   font-size: 16px;        
+      //   padding-bottom: 10px;
+      //   display: block;
+      //   width: 100%;
+      //   &::after{
+      //     display: block;
+      //     content: '';
+      //     width: 20px;
+      //     height: 2px;
+      //     background-color: #499cd7;
+      //     position: absolute; 
+      //     top: 25px;         
+      //   }
+      //   &::before{
+      //     display: block;
+      //     content: '';
+      //     width: 95%;
+      //     height: 1px;
+      //     background-color: #e9e9e9;
+      //     position: absolute;
+      //     top:26px;
+      //   }
+      // }
+    }
+    .el-message-box__content{
+      margin: 30px 0 10px 0;      
+    }
+    .el-message-box__btns{
+      display: flex;
+      justify-content: space-between;
+      padding:5px 46px 19px;
+      .el-button{
+        // border:none;
+        width: 50%;
+        &:hover{
+          // background:none;
+          // color: cornflowerblue;
+        }
+      }
+      // .el-button--primary{
+      //   background: none;
+      //   color:#606266;
+      //   border-left: 1px solid #dadada;        
+      // }
+    }
+  }
+  .el-button--small{
+    padding: 7px 13px;
+  }
+  .el-tabs__item.is-active{
+    font-weight: bold;
+  }
+}

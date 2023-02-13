@@ -1,0 +1,68 @@
+//
+
+.purchaseSystem {
+  //system self
+  &.detail-container {
+    @import './detail.scss';
+  }
+  // &.app-container {
+  //   @import './system.scss';
+  // }
+
+  //form style
+  @import './form.scss';
+
+  .edit-bottom-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+
+    .cancle {
+      background: #bcbcbc;
+      color: white;
+    }
+  }
+
+  .handle-table-row {
+    margin-bottom: 20px;
+  }
+
+  //筛选项的公共样式
+  .filter-button {
+    width: 100%;
+    position: relative;
+    &.reset {
+      color: white;
+      background: #30c782;
+      border-color: #30c782;
+      width: 100%;
+      margin: -22px 0;
+      position: relative;
+    }
+  }
+
+  .cancle {
+    background: #bcbcbc;
+    color: white;
+  }
+
+  .reset {
+    background: #30c782;
+    color: white;
+  }
+
+  //关于小标题筛选页面的
+  .handle-row {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    // margin-bottom: 20px;
+    & > * {
+      margin-right: 10px;
+    }
+
+    .el-button--small {
+      height: 35px;
+    }
+  }
+}
