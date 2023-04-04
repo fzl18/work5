@@ -4,6 +4,10 @@ export const FlowComponentTypes = {
    */
   devicesHard: 'INDUSTRY_DEVICE_BINDING',
   /**
+   * @description 工业设备(输入)绑定组件
+   */
+  outputDevicesHard: 'INDUSTRY_OUT_DEVICE_BINDING',
+  /**
    * @description 视频设备绑定组件
    */
   devicesVideo: 'VIEW_DEVICE_BINDING',
@@ -40,6 +44,10 @@ export const FlowComponentTypes = {
    * @description  计算组件
    */
   computeMath: 'COUNT_SUB',
+  /**
+   * @description  IOT平台组件
+   */
+  platformIot: 'IOT_ATTRIBUTES_SUB',
 }
 
 Object.freeze(FlowComponentTypes)

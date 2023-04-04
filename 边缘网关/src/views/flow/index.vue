@@ -12,12 +12,28 @@
         <el-button v-else type="primary" @click="$router.go(-1)">
           返回
         </el-button>
+        <el-button v-if="debug" type="danger" @click="nodeTest">
+          DEBUG:添加DEBUG节点
+        </el-button>
+        <el-button v-if="debug" type="danger" @click="exportTest">
+          DEBUG:导出数据
+        </el-button>
+        <el-button v-if="debug" type="danger" @click="importTest">
+          DEBUG:导入数据
+        </el-button>
+
         <!-- <el-button type="primary" @click="importData">导入数据</el-button>
         <el-button type="primary" @click="exportData">导出数据</el-button> -->
       </template>
       <el-alert
         v-if="readonly"
         title="已启动的流程不可编辑，如需编辑请先禁用流程"
+        type="warning"
+        effect="dark"
+      />
+      <el-alert
+        v-if="debug"
+        title="You are in Debug Mode!"
         type="warning"
         effect="dark"
       />
@@ -52,7 +68,7 @@
   </div>
 </template>
 <script>
-  import { Graph, Addon, View } from '@antv/x6'
+  import { Graph, Addon, View, Model } from '@antv/x6'
   import '@antv/x6-vue-shape'
   import {
     formatFlowData,
@@ -61,45 +77,32 @@
     createPorts,
     showPorts,
     nodeChangeColor,
-    getUUID,
     createPortGroup,
   } from './util/flowHelper'
-  import flowData from './mockData/flowData'
+  // import flowData from './mockData/flowData'
   import flowConfig, {
     imgageNodeFlowSize,
-    imageNodeFlowAttrConfig,
-    imageNodeFlowAttrConfigActived,
-    defaultColorConfig,
     menuGroupsConfig,
     menuConfig,
+    flowComponentNodeAttrConfig,
+    flowComponentNodeAttrConfigActived,
   } from './util/flowConfig'
   import contextMenu from './components/contextMenu'
   import _cloneDeep from 'lodash/cloneDeep'
 
-  import RightPanel from './components/rightPanel/rightPanel.vue'
-  import DevicesHard from './components/rightPanel/devicesHard.vue'
-  import DevicesVideo from './components/rightPanel/devicesVideo.vue'
-  import TranslateFilter from './components/rightPanel/translateFilter.vue'
-  import TranslateThreshold from './components/rightPanel/translateThreshold.vue'
-  import OutputMqtt from './components/rightPanel/outputMqtt.vue'
-  import OutputHttp from './components/rightPanel/outputHttp.vue'
-  import OutputVideoSteam from './components/rightPanel/outputVideoSteam.vue'
-  import EventEmail from './components/rightPanel/eventEmail.vue'
-  import EventWarning from './components/rightPanel/eventWarning.vue'
-  import ComputeMath from './components/rightPanel/computeMath.vue'
+  import rightPanelComponents from './components/rightPanel'
   import {
     createNode,
     updateFlowData,
     getFlowDataById,
     getFlowInfoById,
   } from '@/api/flow'
-  import {
-    FlowComponentTypes,
-    transformFlowComponentTypes,
-  } from './util/flowComponentMapping'
+  import { FlowComponentTypes } from './util/flowComponentMapping'
 
   import { uploadImageFromBase64, updateFlowImage } from '@/api/image'
   import _debounce from 'lodash/debounce'
+
+  import FlowComponent from './components/flowComponent.vue'
 
   let flowTimer = null
   let saveTimer = null
@@ -107,17 +110,7 @@
   export default {
     name: 'FlowIndex',
     components: {
-      RightPanel,
-      DevicesHard,
-      DevicesVideo,
-      TranslateFilter,
-      TranslateThreshold,
-      OutputMqtt,
-      OutputHttp,
-      OutputVideoSteam,
-      EventEmail,
-      EventWarning,
-      ComputeMath,
+      ...rightPanelComponents,
     },
     beforeRouteLeave(to, from, next) {
       if (flowTimer) {
@@ -135,6 +128,8 @@
     },
     data() {
       return {
+        containerId: 'FlowContainer',
+        debug: process.env.NODE_ENV === 'development' ? false : false, //设置为true可以开启流程使用本地假数据调试模式
         flowId: null,
         flowInfo: null,
         isRun: 1,
@@ -164,12 +159,76 @@
     created() {
       this.flowId = this.$route.params.id
       this.normalPortGroup = createPortGroup(['left', 'top', 'bottom', 'right'])
+
+      // Graph.registerVueComponent('flowComponent', FlowComponent, true)
+      Graph.unregisterNode('flow-component')
+      Graph.registerNode('flow-component', {
+        inherit: 'vue-shape',
+        component: FlowComponent,
+        ports: {
+          groups: {
+            ...this.normalPortGroup,
+          },
+        },
+        attrs: {
+          flowComponentNodeAttrConfig,
+          //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
+          // refX2: -18, //参考 https://x6.antv.vision/zh/docs/api/registry/attr/#refx
+          // refY: '50%',
+          // refY2: -18,
+        },
+      })
     },
     async mounted() {
-      await this.getFlowInfo()
-      this.getData()
+      if (this.debug) {
+        console.info(
+          '*****you are in debug mode now!all data will not save to server!*****'
+        )
+        this.initFlow()
+        this.initSideMenu()
+      } else {
+        await this.getFlowInfo()
+        this.getData()
+      }
     },
     methods: {
+      importTest() {
+        if (this.flowLoading) {
+          return false
+        }
+        // console.log('getData')
+        this.flowLoading = true
+
+        const result = window.localStorage.getItem('debugFlowData')
+        if (result && result !== '') {
+          const debugData = JSON.parse(result)
+          const data = formatFlowData(debugData, this.normalPortGroup)
+          this.drawFromData(data)
+        }
+
+        this.$nextTick(() => {
+          this.flowLoading = false
+        })
+      },
+      exportTest() {
+        this.flowData = this.graph.toJSON()
+        let postData = formatExportData(this.graph.toJSON())
+        console.log(postData)
+        window.localStorage.setItem('debugFlowData', JSON.stringify(postData))
+      },
+      nodeTest() {
+        this.graph.addNode({
+          id: '1',
+          shape: 'flow-component',
+          x: 100,
+          y: 150,
+          width: 68,
+          height: 68,
+          data: {
+            num: 0,
+          },
+        })
+      },
       async getFlowInfo() {
         const result = await getFlowInfoById(this.flowId)
 
@@ -185,7 +244,7 @@
         if (this.flowLoading) {
           return false
         }
-        console.log('getData')
+        // console.log('getData')
         this.flowLoading = true
         if (!this.flowInfo) {
           await this.getFlowInfo()
@@ -234,10 +293,34 @@
       //   this.flowLoading = false
       // },
       drawFromData(data) {
-        data && this.graph.fromJSON(data) //传入数据
+        // data && drawFlowData(this.graph, data) //传入数据
+        const graph = this.graph
+        if (data) {
+          console.log('drawFromData', data)
+          const cells = []
 
-        this.graph.centerContent()
-        this.flowData = this.graph.toJSON()
+          data.forEach((cell) => {
+            if (cell.shape === 'edge') {
+              console.log('edge', cell)
+              cells.push(graph.createEdge(cell))
+            } else {
+              console.log('node', cell)
+              const newNode = graph.createNode(cell)
+              const makeup = _cloneDeep(newNode.getMarkup())
+              makeup.splice(1, 0, { tagName: 'rect', selector: 'borderBox' })
+              newNode.setMarkup(makeup)
+              cells.push(newNode)
+            }
+          })
+          console.log('cells', cells)
+          graph.resetCells(cells, { silent: false })
+          const container = document.getElementById(this.containerId)
+          const ports = container.querySelectorAll('.x6-port-body')
+          showPorts(ports, false)
+        }
+
+        graph.centerContent()
+        this.flowData = graph.toJSON()
       },
       // exportData() {
       //   const json = formatExportData(this.graph.toJSON())
@@ -249,7 +332,7 @@
       initFlow() {
         //初始化画布，设置宽高
 
-        const containerId = 'FlowContainer'
+        const containerId = this.containerId
 
         let baseConfig = {
           container: document.getElementById(containerId),
@@ -300,6 +383,7 @@
             columns: 2,
             columnWidth: 'auto',
             rowHeight: 'auto',
+            fontSize: 12,
           },
           // getDragNode(node) {
           //   // 返回一个新的节点作为实际放置到画布上的节点
@@ -314,24 +398,51 @@
           // },
           async validateNode(node) {
             console.log('validateNode', node)
-            const { data } = await createNode({
-              subCode: FlowComponentTypes[node.data.code],
-              name: node.attrs.text.text,
-              flowGroupId: that.$route.params.id,
-            })
-            if (data) {
-              const nodeId = data
-              const newNode = that.graph.updateCellId(node, nodeId)
-              const ports = createPorts(`${nodeId}`, that.normalPortGroup)
-              newNode
-                .size(imgageNodeFlowSize, imgageNodeFlowSize)
-                .attr({ ...imageNodeFlowAttrConfig })
-              newNode.addPorts(ports)
-              newNode.setData({
-                id: nodeId,
+            let nodeId = ''
+            if (that.debug) {
+              console.info(
+                "[Debug Mode]:validateNode => Node's id is fake and not save node"
+              )
+              nodeId = `fakeID_${new Date().getTime()}`
+            } else {
+              const { data } = await createNode({
                 subCode: FlowComponentTypes[node.data.code],
+                name: node.attrs.text.text,
+                flowGroupId: that.$route.params.id,
               })
+
+              if (data) {
+                nodeId = data
+              }
             }
+
+            if (nodeId === '') {
+              return false
+            }
+            const { x, y } = node.getProp('position')
+            let jsonNode = node.toJSON()
+            console.log('jsonNode', jsonNode)
+            // const { x, y } = node.getProp('position')
+            const ports = createPorts(`${nodeId}`, that.normalPortGroup)
+
+            jsonNode.id = nodeId
+            jsonNode.shape = 'flow-component'
+
+            let newNode = that.graph.createNode(jsonNode)
+
+            newNode.size(imgageNodeFlowSize, imgageNodeFlowSize)
+            newNode.setAttrs({ ...flowComponentNodeAttrConfig })
+            newNode.addPorts(ports)
+            newNode.setData({
+              id: nodeId,
+              subCode: FlowComponentTypes[node.data.code],
+            })
+            const makeup = JSON.parse(JSON.stringify(newNode.getMarkup()))
+            makeup.splice(1, 0, { tagName: 'rect', selector: 'borderBox' })
+            newNode.setMarkup(makeup)
+
+            // console.log('newNode', newNode)
+            that.graph.addNode(newNode)
 
             return false
           },
@@ -359,9 +470,7 @@
                 },
               },
               data: {
-                type: item.type,
-                code: item.code,
-                title: item.title,
+                ...item,
               },
               // ports: { ...ports },
             })
@@ -408,6 +517,11 @@
           this.toggleContextMenu(null, null, null, null, false)
         }, 200)
       },
+      isFlowComponent(node) {
+        // console.log('isFlowComponent', node)
+        // ['vue-shape'].indexOf(node.shape) > -1
+        return ['flow-component'].indexOf(node.shape) > -1
+      },
       /**
        * 注册各种事件
        * @param {*} containerId
@@ -419,22 +533,22 @@
         }
         this.registed = true
         graph.on('node:mouseenter', ({ node }) => {
-          if (['vue-shape'].indexOf(node.shape) > -1) return
+          if (!this.isFlowComponent(node)) return
           const container = document.getElementById(containerId)
           const ports = container.querySelectorAll('.x6-port-body')
 
-          nodeChangeColor(node, imageNodeFlowAttrConfigActived)
+          nodeChangeColor(node, { ...flowComponentNodeAttrConfigActived })
           if (!this.readonly) {
             showPorts(ports, true)
           }
         })
         graph.on('node:mouseleave', ({ node }) => {
           // console.log(node.shape)
-          if (['vue-shape'].indexOf(node.shape) > -1) return
+          if (!this.isFlowComponent(node)) return
           const container = document.getElementById(containerId)
           const ports = container.querySelectorAll('.x6-port-body')
 
-          nodeChangeColor(node, imageNodeFlowAttrConfig)
+          nodeChangeColor(node, { ...flowComponentNodeAttrConfig })
 
           if (!this.readonly) {
             showPorts(ports, false)
@@ -442,8 +556,7 @@
         })
 
         graph.on('node:click', ({ node }) => {
-          if (['vue-shape'].indexOf(node.shape) > -1) return
-
+          if (!this.isFlowComponent(node)) return
           const clickTime = new Date().getTime()
 
           // console.log(
@@ -467,8 +580,8 @@
           this.oldClickTime = clickTime
         })
 
-        graph.on('node:dblclick', (event) => {
-          if (['vue-shape'].indexOf(event.shape) > -1) return
+        graph.on('node:dblclick', ({ node }) => {
+          if (!this.isFlowComponent(node)) return
 
           const clickTime = new Date().getTime()
 
@@ -479,11 +592,11 @@
             this.oldClickTime &&
             clickTime - this.oldClickTime < this.timeStep
           ) {
-            console.log('dblclick', event)
-            if (event.node.data.code) {
-              const eventName = `${event.node.data.code}DbClick`
-              this[eventName] && this[eventName](event.node)
-              this.toggleRightPanel(event.node, true)
+            // console.log('dblclick', event)
+            if (node.data.code) {
+              const eventName = `${node.data.code}DbClick`
+              this[eventName] && this[eventName](node)
+              this.toggleRightPanel(node, true)
             }
           }
           this.oldClickTime = clickTime
@@ -534,16 +647,12 @@
         // 右键菜单功能源码end
 
         graph.on('node:added', ({ cell, options }) => {
-          if (cell.shape === 'vue-shape') {
-            return false
-          }
+          if (!this.isFlowComponent(cell)) return
           this.saveFlowData(cell, 'node', 'added', options)
         })
 
         graph.on('node:removed', ({ node, index, options }) => {
-          if (node.shape === 'vue-shape') {
-            return false
-          }
+          if (!this.isFlowComponent(node)) return
           this.saveFlowData(node, 'node', 'removed', options)
         })
 
@@ -566,15 +675,18 @@
           // console.log('rootNodes', rootNodes)
           for (let i = 0; i < rootNodes.length; i++) {
             const rootNode = rootNodes[i]
-            if (rootNode.data.type !== 'devices') {
+            if (
+              rootNode.data.type !== 'devices' &&
+              rootNode.data.type !== 'platform'
+            ) {
               reject({
-                message: '每个流程的起始组件必须是设备!',
+                message: '每个流程的起始组件必须是设备或平台!',
                 data: rootNode,
               })
               break
             }
 
-            // 末端组件必须是事件或者输出
+            // 末端组件必须是事件或者输出或者平台
             const successors = this.graph.getSuccessors(rootNode)
             if (successors.length) {
               for (let j = 0; j < successors.length; j++) {
@@ -585,7 +697,7 @@
                     ['event', 'output'].indexOf(successorsNode.data.type) === -1
                   ) {
                     reject({
-                      message: '末端组件必须是事件或者输出!',
+                      message: '末端组件必须是事件、输出!',
                       data: successorsNode,
                     })
 
@@ -597,7 +709,7 @@
             } else {
               reject({
                 message:
-                  '每个流程中必须至少要有一个设备和一个输出（或者事件）!',
+                  '每个流程中必须至少要有一个输入设备（或者平台）和一个输出（或者事件）!',
                 data: successors,
               })
 
@@ -620,6 +732,11 @@
           return false
         }
         console.log('check end!')
+
+        if (this.debug) {
+          console.info('[Debug Mode]:doFinishSave=>return false')
+          return false
+        }
 
         if (this.flowLoading) {
           return false
@@ -685,6 +802,11 @@
           })
       },
       saveFlowData(cell, cellType, cellOpt, options = null) {
+        if (this.debug) {
+          console.info('[Debug Mode]:saveFlowData=>return false')
+          return false
+        }
+
         // console.log('cell', cell, cellType, cellOpt, options)
         if (this.flowLoading) {
           return false

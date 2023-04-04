@@ -141,6 +141,28 @@ export default {
           throw '设备不能作为接入组件'
         }
 
+        //设备的输入只能是平台,或者无输入
+        if (
+          targetCell.data.type === 'output' &&
+          targetCell.data.code === 'outputDevicesHard' &&
+          sourceCell.data.type !== 'platform'
+        ) {
+          throw '输出设备只能作为平台的输出'
+        }
+
+        // 平台的输出只能是设备
+        if (
+          targetCell.data.code !== 'outputDevicesHard' &&
+          sourceCell.data.type === 'platform'
+        ) {
+          throw '平台的输出只能是输出设备'
+        }
+
+        // 平台只能作为输出组件
+        if (targetCell.data.type === 'platform') {
+          throw '平台不能成为其他组件的输出'
+        }
+
         // 输出组件有一个或者多个输入、不能输出
         if (sourceCell.data.type === 'output') {
           throw '输出组件不能再输出'
@@ -192,6 +214,7 @@ export default {
             }
           }
         }
+
         //  如果目标不能被连接
         if (!targetMagnet) {
           return false
@@ -253,6 +276,9 @@ export default {
   },
 }
 
+/***
+ * @description 菜单中节点的样式
+ ***/
 export const imageNodeSideConfig = {
   inherit: 'rect',
   width: 80,
@@ -301,40 +327,104 @@ export const imageNodeSideConfig = {
     label: {
       x: 0,
       refY: 78,
-      fontSize: 14,
+      fontSize: 12,
       fill: defaultColorConfig.menu.node.labelColor,
     },
   },
 }
 
+/***
+ * @description 图片节点的尺寸
+ ***/
 export const imgageNodeFlowSize = 88
 
-//流程图中的节点图形
-export const imageNodeFlowAttrConfig = {
-  border: {
+// //流程图中的节点图形样式
+// export const imageNodeFlowAttrConfig = {
+//   border: {
+//     width: 68,
+//     height: 68,
+//     stroke: 'red',
+//     refX: 0,
+//     refX2: 10,
+//     refY: 0,
+//     refY2: 10,
+//     rx: 4,
+//     ry: 4,
+//     stroke: defaultColorConfig.flow.node.strokeColor,
+//     fill: defaultColorConfig.flow.node.fillColor,
+//   },
+//   body: {
+//     stroke: 'transparent',
+//     fill: 'transparent',
+//   },
+//   image: {
+//     width: 34,
+//     height: 34,
+//     refX: '50%', //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
+//     refX2: -18, //参考 https://x6.antv.vision/zh/docs/api/registry/attr/#refx
+//     refY: '50%',
+//     refY2: -18,
+//   },
+//   label: {
+//     x: 0,
+//     refY: 96,
+//     fontSize: 14,
+//     fill: defaultColorConfig.flow.node.labelColor,
+//   },
+// }
+// //流程图中节点图形激活
+// export const imageNodeFlowAttrConfigActived = {
+//   border: {
+//     width: 68,
+//     height: 68,
+//     stroke: 'red',
+//     refX: 0,
+//     refX2: 10,
+//     refY: 0,
+//     refY2: 10,
+//     rx: 4,
+//     ry: 4,
+//     stroke: defaultColorConfig.flow.nodeActived.strokeColor,
+//     fill: defaultColorConfig.flow.node.fillColor,
+//   },
+//   body: {
+//     stroke: 'transparent',
+//     fill: 'transparent',
+//   },
+//   image: {
+//     width: 34,
+//     height: 34,
+//     refX: '50%', //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
+//     refX2: -18, //参考 https://x6.antv.vision/zh/docs/api/registry/attr/#refx
+//     refY: '50%',
+//     refY2: -18,
+//   },
+//   label: {
+//     x: 0,
+//     refY: 96,
+//     fontSize: 14,
+//     fill: defaultColorConfig.flow.node.labelColor,
+//   },
+// }
+
+//自定义组件节点的svg样式
+export const flowComponentNodeAttrConfig = {
+  borderBox: {
     width: 68,
     height: 68,
-    stroke: 'red',
-    refX: 0,
-    refX2: 10,
-    refY: 0,
-    refY2: 10,
+    refX: 0.5, //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
+    refX2: -34,
+    refY: 10,
     rx: 4,
     ry: 4,
     stroke: defaultColorConfig.flow.node.strokeColor,
-    fill: defaultColorConfig.flow.node.fillColor,
-  },
-  body: {
-    stroke: 'transparent',
+    strokeWidth: 2,
     fill: 'transparent',
   },
-  image: {
-    width: 34,
-    height: 34,
-    refX: '50%', //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
-    refX2: -18, //参考 https://x6.antv.vision/zh/docs/api/registry/attr/#refx
-    refY: '50%',
-    refY2: -18,
+  foreignObject: {
+    refX: 0.5, //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
+    refX2: -32,
+    refY: 12,
   },
   label: {
     x: 0,
@@ -343,32 +433,24 @@ export const imageNodeFlowAttrConfig = {
     fill: defaultColorConfig.flow.node.labelColor,
   },
 }
-
-export const imageNodeFlowAttrConfigActived = {
-  border: {
+//自定义组件节点的svg样式(选中后)
+export const flowComponentNodeAttrConfigActived = {
+  borderBox: {
     width: 68,
     height: 68,
-    stroke: 'red',
-    refX: 0,
-    refX2: 10,
-    refY: 0,
-    refY2: 10,
+    refX: 0.5, //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
+    refX2: -34,
+    refY: 10,
     rx: 4,
     ry: 4,
     stroke: defaultColorConfig.flow.nodeActived.strokeColor,
-    fill: defaultColorConfig.flow.node.fillColor,
-  },
-  body: {
-    stroke: 'transparent',
+    strokeWidth: 2,
     fill: 'transparent',
   },
-  image: {
-    width: 34,
-    height: 34,
-    refX: '50%', //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
-    refX2: -18, //参考 https://x6.antv.vision/zh/docs/api/registry/attr/#refx
-    refY: '50%',
-    refY2: -18,
+  foreignObject: {
+    refX: 0.5, //设置元素 x 坐标，目标 x 坐标相对于 ref 指代的参照元素的左上角 x 坐标（参照 x 坐标）
+    refX2: -32,
+    refY: 12,
   },
   label: {
     x: 0,
@@ -395,9 +477,9 @@ export const portConfig = {
       stroke: defaultColorConfig.port.color,
       strokeWidth: defaultColorConfig.port.strokeWidth,
       fill: defaultColorConfig.port.fillColor,
-      style: {
-        visibility: 'hidden',
-      },
+      // style: {
+      //   visibility: 'hidden',
+      // },
     },
   },
   // zIndex: 100,
@@ -463,6 +545,14 @@ export const menuGroupsConfig = [
     graphHeight: 136,
     graphPadding: 20,
   },
+  {
+    title: '平台',
+    name: 'platform',
+    collapsable: true,
+    collapsed: true,
+    graphHeight: 136,
+    graphPadding: 20,
+  },
 ]
 
 export const menuConfig = {
@@ -522,6 +612,13 @@ export const menuConfig = {
       type: 'output',
       code: 'outputVideoSteam',
     },
+    {
+      title: '设备绑定',
+      label: '输出设备',
+      image: require('@/assets/images/icons/devices_hard.png'),
+      type: 'output',
+      code: 'outputDevicesHard', //INDUSTRY_OUT_DEVICE_BINDING
+    },
   ],
 
   event: [
@@ -548,6 +645,16 @@ export const menuConfig = {
       image: require('@/assets/images/icons/compute_math.png'),
       type: 'compute',
       code: 'computeMath',
+    },
+  ],
+
+  platform: [
+    {
+      title: 'IOT',
+      label: 'IOT',
+      image: require('@/assets/images/icons/platform_iot.png'),
+      type: 'platform',
+      code: 'platformIot',
     },
   ],
 }

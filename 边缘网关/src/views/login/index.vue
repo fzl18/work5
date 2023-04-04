@@ -12,6 +12,7 @@
             type="text"
             class="login-form-input"
             placeholder="请输入账号"
+            @keypress.enter="login"
           />
           <span class="focus-line"></span>
         </div>
@@ -21,6 +22,7 @@
             type="password"
             class="login-form-input"
             placeholder="请输入密码"
+            @keypress.enter="login"
           />
           <span class="focus-line"></span>
         </div>

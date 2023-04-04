@@ -73,12 +73,13 @@
   </div>
 </template>
 <script>
-  import getTypes from '@/utils/getTypes'
   import _cloneDeep from 'lodash/cloneDeep'
   import _find from 'lodash/find'
   import { mapGetters } from 'vuex'
   import { isKeyName } from '@/utils/formValidatorHelper'
   import { dataToFormData } from '@/utils/autoForm'
+  import getTypes, { TypeName } from '@/utils/getTypes'
+
   export default {
     name: 'ModbusPoint',
     inject: {
@@ -92,7 +93,6 @@
         default: () => null,
       },
     },
-
     data() {
       return {
         /**
@@ -147,6 +147,17 @@
             type: 'select',
             required: true,
           },
+          bitSort: {
+            code: 'bitSort',
+            apiCode: 'endian',
+            title: '字节序',
+            value: '',
+            type: 'select',
+            required: true,
+            hidden: true,
+            options: [],
+            rules: [],
+          },
           objectsCount: {
             code: 'objectsCount',
             apiCode: 'objectsCount',
@@ -171,12 +182,24 @@
     computed: {
       ...mapGetters('devicesInfo', ['pointInfo']),
     },
+    watch: {
+      'formData.readType.value': function (newVal) {
+        if (newVal === '5' || newVal === '6') {
+          this.$set(this.formData.bitSort, 'hidden', false)
+        } else {
+          this.$set(this.formData.bitSort, 'hidden', true)
+        }
+      },
+    },
     async created() {
-      const dataTypes = await getTypes('dataType')
-      const readTypes = await getTypes('readType')
+      const dataTypes = await getTypes(TypeName.DATATYPE)
+      const readTypes = await getTypes(TypeName.READTYPE)
+      const bitSorts = await getTypes(TypeName.BYTECOUNT)
 
       this.$set(this.formData.dataType, 'options', dataTypes)
       this.$set(this.formData.readType, 'options', readTypes)
+      this.$set(this.formData.bitSort, 'options', bitSorts)
+
       this.readTypes = readTypes
       if (this.pointInfo) {
         this.list = _cloneDeep(this.pointInfo)

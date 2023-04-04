@@ -2,7 +2,7 @@ import { Graph } from '@antv/x6'
 import {
   imgageNodeFlowSize,
   imageNodeSideConfig,
-  imageNodeFlowAttrConfig,
+  flowComponentNodeAttrConfig,
   menuConfig,
   portConfig,
   portPositionConfig,
@@ -17,6 +17,17 @@ for (let key in menuConfig) {
     menuImageList[item.code] = item.image
   })
 }
+
+// export const drawFlowData = (graph, data) => {
+//   console.log('drawFlowData', graph, data)
+//   const cells = []
+
+//   // data.forEach(item=>{
+//   //   if(item.)
+//   // })
+//   // graph.clear()
+//   graph.addCells(cells)
+// }
 
 /**
  * 格式化数据为X6支持的格式
@@ -35,23 +46,19 @@ export const formatFlowData = (data, groups) => {
 
       if (!!cell) {
         //重新添加被删除的样式属性
-        if (cell.shape !== 'edge') {
+        if (cell.shape === 'edge') {
+          cell.id = cell.id ? cell.id : getUUID()
+        } else if (cell.shape !== 'edge') {
+          cell.shape = 'flow-component'
           cell.ports.groups = groups
           cell.width = imgageNodeFlowSize
           cell.height = imgageNodeFlowSize
           cell.attrs = Object.assign(
             {},
             { ...cell.attrs },
-            { ...imageNodeFlowAttrConfig },
-            {
-              image: {
-                ...imageNodeFlowAttrConfig.image,
-                href: menuImageList[cell.data.code],
-              },
-            }
+            { ...flowComponentNodeAttrConfig }
           )
-        } else if (cell.shape === 'edge') {
-          cell.id = cell.id ? cell.id : getUUID()
+          cell.data.image = menuImageList[cell.data.code]
         }
       }
       cells.push({
@@ -83,19 +90,24 @@ export const formatExportData = (json) => {
       res.code = 'EDGE'
       res.source = cell.source.cell
       res.target = cell.target.cell
-    } else if (cell.shape === 'custom-image') {
+    } else if (cell.shape === 'flow-component') {
       res.code = cell.data.subCode
     }
 
     const metadata = _cloneDeep(cell)
 
-    // todo metadata数据删除ports.group,attrs.image
-    // 由于ports.group和attrs.image属于过于庞大重复,从元数据中删除,在导入数据时,需从系统设置中抽取
-    if (metadata.shape === 'custom-image') {
+    // ! 由于ports.group和attrs.image属于过于庞大重复,从元数据中删除,在导入数据时,需从系统设置中抽取
+
+    if (metadata.shape === 'flow-component') {
       delete metadata.ports.groups
-      delete metadata.attrs.image
       delete metadata.attrs.body
       delete metadata.attrs.border
+      delete metadata.attrs.image
+      delete metadata.attrs.borderBox
+      delete metadata.attrs.foreignObject
+      delete metadata.data.image
+      delete metadata.markup
+      delete metadata.component
     }
 
     res.metadata = _cloneDeep(metadata)

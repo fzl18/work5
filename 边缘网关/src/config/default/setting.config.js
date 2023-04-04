@@ -73,7 +73,7 @@ const setting = {
   //需要自动注入并加载的模块
   providePlugin: {},
   //npm run build时是否自动生成7z压缩包
-  build7z: true,
+  build7z: false,
   //画廊布局和综合布局时，是否点击一级菜单默认开启第一个二级菜单
   openFirstMenu: true,
   //是否启用埋点配置
