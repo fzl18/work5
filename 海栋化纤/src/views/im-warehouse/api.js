@@ -1,0 +1,272 @@
+import request from '@/utils/request'
+
+export function login(data) {
+  //登录
+  return request({
+    url: 'mindex/login',
+    method: 'post',
+    data,
+  })
+}
+export function logout(data) {
+  //登出
+  return request({
+    url: 'mindex/logout',
+    method: 'post',
+    data,
+  })
+}
+export function getMenu(data) {
+  //菜单
+  return request({
+    url: 'mindex/menu',
+    method: 'post',
+    data,
+  })
+}
+
+//==================== 入货单
+export function userAll(data) {
+  //列表
+  return request({
+    url: 'busrwaybill/user_all',
+    method: 'post',
+    data,
+  })
+}
+export function importAll(data) {
+  //列表
+  return request({
+    url: 'busuwaybill/all',
+    method: 'post',
+    data,
+  })
+}
+export function importList(data) {
+  //列表
+  return request({
+    url: 'busuwaybill/all',
+    method: 'post',
+    data,
+  })
+}
+export function importAdd(data) {
+  //添加
+  return request({
+    url: 'busuwaybill/add',
+    method: 'post',
+    data,
+  })
+}
+export function importEdit(data) {
+  //编辑
+  return request({
+    url: 'busuwaybill/edit',
+    method: 'post',
+    data,
+  })
+}
+export function importDel(data) {
+  //删除
+  return request({
+    url: 'busuwaybill/del',
+    method: 'post',
+    data,
+  })
+}
+
+// 审核 ===================================
+export function checkList(data) {
+  //列表
+  return request({
+    url: 'checkapproval/index',
+    method: 'post',
+    data,
+  })
+}
+export function checkEdit(data) {
+  //编辑
+  return request({
+    url: 'checkapproval/edit',
+    method: 'post',
+    data,
+  })
+}
+export function checkDel(data) {
+  //编辑
+  return request({
+    url: 'checkapproval/del',
+    method: 'post',
+    data,
+  })
+}
+
+// 出库单 ================================
+export function busoutboundList(data) {
+  //列表
+  return request({
+    url: 'busoutbound/index',
+    method: 'post',
+    data,
+  })
+}
+export function busdelivRwayList(data) {
+  //列表2
+  return request({
+    url: 'busdeliv/rwayList',
+    method: 'post',
+    data,
+  })
+}
+export function busoutboundEdit(data) {
+  //编辑
+  return request({
+    url: 'busoutbound/edit',
+    method: 'post',
+    data,
+  })
+}
+export function busoutboundDel(data) {
+  //删除
+  return request({
+    url: 'busoutbound/del',
+    method: 'post',
+    data,
+  })
+}
+// 送货单 ================================
+export function busdelivIndex(data) {
+  //列表
+  return request({
+    url: 'busdeliv/index',
+    method: 'post',
+    data,
+  })
+}
+export function busdelivEdit(data) {
+  //编辑
+  return request({
+    url: 'busdeliv/edit',
+    method: 'post',
+    data,
+  })
+}
+export function busdelivDel(data) {
+  //删除
+  return request({
+    url: 'busdeliv/del',
+    method: 'post',
+    data,
+  })
+}
+// 出门证 ================================
+export function busppIndex(data) {
+  //列表
+  return request({
+    url: 'buspp/index',
+    method: 'post',
+    data,
+  })
+}
+export function busppEdit(data) {
+  //编辑
+  return request({
+    url: 'buspp/edit',
+    method: 'post',
+    data,
+  })
+}
+export function busppDel(data) {
+  //删除
+  return request({
+    url: 'buspp/del',
+    method: 'post',
+    data,
+  })
+}
+// 退货单 ================================
+export function busrtnIndex(data) {
+  //列表
+  return request({
+    url: 'busrtn/index',
+    method: 'post',
+    data,
+  })
+}
+export function busrtnEdit(data) {
+  //编辑
+  return request({
+    url: 'busrtn/edit',
+    method: 'post',
+    data,
+  })
+}
+export function busrtnDel(data) {
+  //删除
+  return request({
+    url: 'busrtn/del',
+    method: 'post',
+    data,
+  })
+}
+
+// 用户模块 ==============================================
+export function userPwd(data) {
+  //删除
+  return request({
+    url: 'user/pwd',
+    method: 'post',
+    data,
+  })
+}
+
+export function userIndex(data) {
+  //用户列表
+  return request({
+    url: 'user/index',
+    method: 'post',
+    data,
+  })
+}
+export function userGroupList(data) {
+  //组列表
+  return request({
+    url: 'user/groupList',
+    method: 'post',
+    data,
+  })
+}
+export function userEdit(data) {
+  //编辑
+  return request({
+    url: 'user/edit',
+    method: 'post',
+    data,
+  })
+}
+export function userAdd(data) {
+  //编辑
+  return request({
+    url: 'user/add',
+    method: 'post',
+    data,
+  })
+}
+
+export function userDel(data) {
+  //删除
+  return request({
+    url: 'user/del',
+    method: 'post',
+    data,
+  })
+}
+
+export function buscusIndex(data) {
+  //客户与运输公司表列表
+  return request({
+    url: 'buscus/index',
+    method: 'post',
+    data,
+  })
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <link href="<%= BASE_URL %>favicon.ico" rel="icon" />
+    <title><%= VUE_APP_TITLE %></title>
+    <meta
+      content="后台管理框架"
+      name="keywords"
+    />
+    <meta
+      content="<%= VUE_APP_TITLE %>"
+      name="description"
+    />
+    <meta content="<%= VUE_APP_AUTHOR %>" name="author" />
+    <link href="<%= BASE_URL %>static/css/loading.css" rel="stylesheet" />
+  </head>
+  <body>
+    <noscript>
+      非常抱歉鉴于安全考量,您无法查看<%= VUE_APP_TITLE %>
+    </noscript>
+    <div id="vue-admin">
+      <div class="first-loading-wrp">
+        <div class="loading-wrp">
+          <span class="dot dot-spin">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </div>
+        <h1><%= VUE_APP_TITLE %></h1>
+      </div>
+    </div>
+    <script>
+      ;/^http(s*):\/\//.test(location.href) ||
+        alert('需要部署到服务器下访问')
+    </script>
+  </body>
+</html>
