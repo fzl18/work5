@@ -1,0 +1,18 @@
+{
+	"UseFrontend": false,
+	"UseMatchmaker": true,
+	"UseHTTPS": false,
+	"UseAuthentication": false,
+	"LogToFile": true,
+	"HomepageFile": "/www/",
+	"AdditionalRoutes": {},
+	"EnableWebserver": true,
+	"MatchmakerAddress": "localhost",
+	"MatchmakerPort": "9999",
+	"PublicIp": "10.11.6.84",
+	"HttpPort": 88,
+	"HttpsPort": 443,
+	"StreamerPort": 8888,
+	"Url": "",
+	"Name": "server"
+}
