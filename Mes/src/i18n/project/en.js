@@ -1,0 +1,17 @@
+export default {
+  序号: 'No.',
+  文件名: 'Filename',
+  物料属性: 'Material Properties',
+  计量单位: 'Measurement Unit',
+  编码: 'Unit Code',
+  计量单位名称: 'Unit name',
+  精度: 'Accuracy',
+  备注: 'Remark',
+  创建人: 'Create By',
+  创建时间: 'Create Time',
+  更新人: 'Update By',
+  更新时间: 'Update By',
+  更多: 'More',
+  '编码/名称': 'Code/name',
+  业务建模: 'Business Modeling',
+}
