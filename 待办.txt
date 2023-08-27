@@ -1,0 +1,420 @@
+调研 大屏 报表 等 可视化 数据
+	解决方案：
+		阿里： dataV	
+		EasyV：     https://easyv.dtstack.com/market
+		亿信 ：https://www.esensoft.com/
+		优诺：thingjs     演示： 设备  https://www.thingjs.com/pp/424ae2d41a6dd23784a39957
+				     码头  https://www.thingjs.com/pp/a7946deb8269dc5b6e5a1bf3
+					http://www.thingjs.com/pp/aa19519eb48633a64b8ae2c4
+				     地图  https://www.thingjs.com/s/a1f80e0f021408971ae1cb05?model=medical?district=57
+	国内可视化工具：  
+		阿里：antV: f2 g6 L7 
+		百度：eCharts
+		
+		
+数字孪生推流服务器   账号：数字孪生\sysadmin 密码： admin@bt2023
+
+ng的使用
+serverless   FaaS
+
+框架换肤 需要实现	菜单解析、资源权限、 
+使用  VuePress 编写说明文档
+
+菜单：
+     脚手架：
+            起源
+            渐进式开发：
+            业务组件沉淀
+            终端：
+                   手机端，
+	    PC中台，
+	    大屏端，
+            操作
+     进阶：
+            框架文档：
+            如何贡献：
+     插件市场：
+     周边生态：
+     趣实验：
+     
+
+
+cli 搭建： 起名： chiTuMa  wukong
+	download-git-repo
+	commander
+	inquirer
+	ora
+	plop
+
+
+打包ECL 本地应用
+准备要做的 组件清单： 参考其它组件库 比如：ivew
+从Vue CLI迁移到Vite
+大屏 创建使用
+
+PM2设置开机自启动：
+	运行 pm2 startup，即在/etc/init.d/目录下生成pm2-root的启动脚本，且自动将pm2-root设为服务。
+
+	运行 pm2 save，会将当前pm2所运行的应用保存在/root/.pm2/dump.pm2下，当开机重启时，运行pm2-root服务脚本，并且到/root/.pm2/dump.pm2下读取应用并启动。
+
+pm2 start verdaccio
+工作流优化：
+	参与项目：
+	没有项目原型：
+	关于 UI设计  figma
+
+开发项目看板，人员，进度
+
+
+框架中添加各组件生成 用脚手架工具添加 组件插件 plopfile 
+
+优化 401的提示，确认后再跳转URL，如果没有用默认地址
+
+框架及组件使用说明 VuePress
+
+开发时快捷菜单：
+	添加表单生成
+	添加 swagger  iframe
+
+
+网站：
+	框架说明站
+	formCreate 表单生成
+	
+
+
+组件： vue-marquee-text-component
+
+添加 菜单搜索框
+
+
+
+
+
+国际化的 合并
+资源鉴权 问题
+合并文件 生成文件很大的问题
+框架升级问题
+
+
+
+发布备份，回滚
+
+part1:
+case $Status  in
+  Deploy)
+    echo "Status:$Status"
+    path="${WORKSPACE}/febak/${BUILD_NUMBER}"      #创建每次要备份的目录
+    if [ -d $path ];
+    then
+        echo "The files is already  exists "
+    else
+        mkdir -p  $path
+    fi
+    \cp -rf ${WORKSPACE}/dist/ $path        #将文件备份到相应目录,覆盖已存在的目标
+    echo "Completing!"
+    ;;
+  Rollback)
+      echo "Status:$Status"
+      echo "Version:$Version"
+      cd ${WORKSPACE}/febak/$Version            #进入备份目录
+      \cp -rf * ${WORKSPACE}/dist/       #将备份拷贝到程序打包目录中，并覆盖之前的war包
+      ;;
+  *)
+  exit
+      ;;
+esac
+
+
+
+part2:
+ReservedNum=5  #保留文件数
+FileDir=${WORKSPACE}/febak/
+date=$(date "+%Y%m%d-%H%M%S")
+
+cd $FileDir   #进入备份目录
+FileNum=$(ls -l | grep '^d' | wc -l)   #当前有几个文件夹，即几个备份
+
+while(( $FileNum > $ReservedNum))
+do
+    OldFile=$(ls -rt | head -1)         #获取最旧的那个备份文件夹
+    echo  $date "Delete File:"$OldFile
+    rm -rf $FileDir/$OldFile
+    let "FileNum--"
+done 
+
+
+
+
+整理： 微前端 代码  基座、子应用
+	openLayer封装地图
+	dplayer 封装播放器
+	所有工作项目代码
+
+
+外网面板地址:  http://1.13.177.92:8888/tencentcloud
+内网面板地址:  http://10.0.0.6:8888/tencentcloud
+username: gdbzriww
+password: eb9f0df79a67
+
+id:  1625070884580495361
+mmAlias:  SP-GPK2023021306
+userName:TvpzqxA97dxyCQFRCOdz
+
+api: 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
+org: org-ZHbpxcCaJfiKGiSKrUQ91vHN
+
+
+框架：
+UI字体图标乱码问题：
+  	在sass-loader前加上css-unicode-loader；
+	sass升级到 1.39.0 再配置config
+
+更新后需要强刷问题
+请求封装 loadding 图标 可控制不显示
+	
+
+
+else if (this.routeChildren.topOptId === 'aiimagesdiscern') {
+          window.open(`${process.env.VUE_APP_URL}/microImagerecog${routePath}`)
+        }
+
+iot\视频管理 微服务化        基座的 动态化配置
+边缘网关    流程引擎的 梳理
+技术分享 ai 
+
+主改：
+C:\Users\btzn0075\Desktop\microApp\base\src\core\layouts\CloudLayout\index.vue   //    itm.prefix = `/${it}Micro`
+子改：
+src\config\default\setting.config.js  //  publicPath: `/micro${process.env.VUE_APP_SUBNAME}` || '/',
+src\router\index.js   //
+    base: window.__POWERED_BY_QIANKUN__
+    ? `/${process.env.VUE_APP_SUBNAME}Micro/`
+    : `${publicPath}`,
+
+vue.config.js  改 image 生的路径 加上 micro
+
+
+仓库： 单独 建 micro 分支存放。
+
+描述         			    数据字典值
+OPC-UA加密方式		opcuaSecurity	
+OPC_UA认证方式		opcuaIdentity	
+是否	                        	booleanType	
+OPC-UA签名方式		opcuaSignType	
+FTP加密方式	            	ftpSecurity	
+FTP文件类型	            	ftpFileType	
+FTP读取模式	                       	ftpReadModeType	
+FTP-txt文件数据视图模式	ftpTxtFileDataViewType	
+
+=========================================================
+
+table 封装：
+	
+	default 属性：{
+	      common:{
+		expandConfig:{}
+		treeConfig:{}
+		sortConfig:{}
+		filterConfig:{}
+		pagerConfig:{}
+	      }
+	}
+	options:{
+	      search:{
+		fields,  // 搜索 字段
+		items,  // 搜索 项
+	      	formRules, // 搜索 表单验证
+		getData, // 搜索 方法		
+	       },
+	      main:{ // 主table设置
+		columns, // 主表头
+		getData, // 搜索 方法
+		operate:{
+		      button: [''],
+		      slot:''
+		}，
+		format：()=>{}, // 数据格式化
+		spanFields: ['updateTime']   // 上下行合并字段名 
+	       },
+	      expand:{  // 子 table设置
+		getData,
+		columns，
+		operate:{
+		      button: [''],
+		      slot:''
+		}		
+	      },
+	      category:{     // 有分类设置
+		title:'',
+		titleIcon:'',
+		params:{} //入参
+		columns
+		
+	      },
+	      settings:{
+		operate:{
+		      button: [''],
+		      slot:''
+		},
+		modalOpen: {
+        		      items: [],  
+		      layer:{  },
+		      form:{
+          			items: [],
+       		       }
+      		},
+		tableHeadLeft:{
+		      visable:true,
+		}
+	      }
+	      openModal: {
+      title: '任务详情',
+      width: 1070,
+      height: 680,
+      showFooter: true,
+      // fullscreen: true,
+      table: {
+        rowOne: [
+          {
+            tag: '关联设备',
+            title: '已关联设备列表',
+            height: 320,
+            columns: [
+              { type: 'checkbox', title: '', width: 50 },
+              // { type: 'seq', title: '序号', width: 50 },
+              { field: 'name', title: '设备编号', width: 200 },
+              { field: 'name', title: '设备名称', width: 200 },
+            ],
+            toolButton: 'bindDevice',
+          },
+          {
+            tag: '关联点检项',
+            title: '已关联点检项列表',
+            height: 320,
+            columns: [
+              { type: 'checkbox', title: '', width: 50 },
+              // { type: 'seq', title: '序号', width: 50 },
+              { field: 'name', title: '点检内容', width: 200 },
+              { field: 'name', title: '点检标准', width: 200 },
+              { field: 'name', title: '判定方式', width: 100 },
+            ],
+            toolButton: 'bindCheck',
+          },
+        ],
+      },
+      form: {
+        fields: {},
+        items: [
+          {
+            field: 'name',
+            title: '设备组名称',
+            span: 8,
+            titleWidth: 100,
+            itemRender: {
+              name: '$input',
+              props: {
+                clearable: true,
+              },
+            },
+          },
+        ],
+      },
+    },
+    pulldownButton: {
+      device: {
+        height: 300,
+        width: 600,
+        formConfig: {
+          items: [
+            {
+              field: 'accu',
+              title: '设备编号',
+              span: 8,
+              itemRender: {
+                name: '$input',
+                props: { placeholder: '', clearable: true },
+              },
+            },
+            {
+              field: 'accu',
+              title: '设备名称',
+              span: 8,
+              itemRender: {
+                name: '$input',
+                props: {
+                  placeholder: '',
+                  clearable: true,
+                },
+              },
+            },
+          ],
+        },
+        columns: [
+          {
+            type: 'seq',
+            title: '序号',
+            width: 50,
+          },
+          {
+            type: 'checkbox',
+            width: 50,
+          },
+          {
+            field: 'accu',
+            title: '设备编号',
+            width: 100,
+          },
+          {
+            field: 'accu',
+            title: '设备名称',
+          },
+        ],
+        getData: measureList,
+      },
+      check: {
+        height: 300,
+        width: 500,
+        getData: measureList,
+        formConfig: {
+          items: [
+            {
+              field: 'accu',
+              title: '点检内容',
+              span: 16,
+              itemRender: {
+                name: '$input',
+                props: { placeholder: '', clearable: true },
+              },
+            },
+          ],
+        },
+        columns: [
+          {
+            type: 'seq',
+            title: '序号',
+            width: 50,
+          },
+          {
+            type: 'checkbox',
+            width: 50,
+          },
+          {
+            field: 'accu',
+            title: '点检内容',
+            width: 100,
+          },
+          {
+            field: 'accu',
+            title: '点检标准',
+            width: 150,
+          },
+        ],
+      },
+    },
+	}
+
+
+ tips:  组件中用 use开头属性，default开头为默认值， prop中传入options,与默认值合并，给到use
+slot: 给各位置留自定义插槽 命名：
+

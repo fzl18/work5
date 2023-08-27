@@ -1,0 +1,48 @@
+{
+  "version": 8,
+  "name": "sjz",
+  "center": [-74.5, 40],
+  "minzoom": 0.6,
+  "maxzoom": 17.4,
+  "projection": { "name": "globe" },
+  "sources": {
+    "sjz": {
+      "type": "raster",
+      "tiles": [
+        "http://localhost/WeServer/wmts/1.0.0/SatelliteForMercator/default/mct/{z}/{y}/{x}.jpg"
+      ],
+      "tileSize": 256
+    },
+    "sjz2": {
+      "type": "raster",
+      "tiles": [
+        "http://localhost/WeServer/wmts/1.0.0/LabelForMercator/default/mct/{z}/{y}/{x}.png"
+      ],
+      "tileSize": 256
+    }
+  },
+  "layers": [
+    {
+      "id": "sjz",
+      "type": "raster",
+      "source": "sjz",
+      "source-layer": "sjz",
+      "maxzoom": 10,
+      "minzoom": 0
+    },
+    {
+      "id": "sjz2",
+      "type": "raster",
+      "source": "sjz2",
+      "source-layer": "sjz2"
+    }
+  ],
+  "fog": {
+    "horizon-blend": 0.01,
+    "color": "orange",
+    "high-color": "#320550",
+    "space-color": "#002",
+    "star-intensity": 0.3,
+    "range": [1, 10]
+  }
+}

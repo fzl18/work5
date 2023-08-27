@@ -1,0 +1,40 @@
+{
+  "version": 8,
+  "name": "tdt",
+  "zoom": 1.2,
+  "center": [-74.5, 40],
+  "minzoom": 0.6,
+  "maxzoom": 17.4,
+  "projection": { "name": "globe" },
+  "sources": {
+    "tdt": {
+      "type": "raster",
+      "tiles": [
+        "http://t0.tianditu.gov.cn/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=ebf64362215c081f8317203220f133eb"
+      ],
+      "tileSize": 256
+    },
+    "tdt2": {
+      "type": "raster",
+      "tiles": [
+        "http://t0.tianditu.gov.cn/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=ebf64362215c081f8317203220f133eb"
+      ],
+      "tileSize": 256
+    }
+  },
+  "layers": [
+    {
+      "id": "tdt",
+      "type": "raster",
+      "source": "tdt",
+      "source-layer": "tdt"
+    },
+    {
+      "id": "tdt2",
+      "type": "raster",
+      "source": "tdt2",
+      "source-layer": "tdt2"
+    }
+  ],
+  "fog": {}
+}

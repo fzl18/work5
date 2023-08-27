@@ -1,0 +1,31 @@
+{
+  "version": 8,
+  "name": "sjzdem",
+  "sources": {
+    "sjzdem": {
+      "type": "raster-dem",
+      "url": "http://localhost/WeServer/tms/1.0.0/Dem_30m"
+    },
+    "sjzdem2": {
+      "type": "raster",
+      "tiles": [
+        "http://localhost/WeServer/wmts/1.0.0/LabelForMercator/default/mct/{z}/{y}/{x}.png"
+      ],
+      "tileSize": 256
+    }
+  },
+  "layers": [
+    {
+      "id": "sjzdem",
+      "type": "hillshade",
+      "source": "sjzdem",
+      "source-layer": "sjzdem"
+    },
+    {
+      "id": "sjzdem2",
+      "type": "raster",
+      "source": "sjzdem2",
+      "source-layer": "sjzdem2"
+    }
+  ]
+}

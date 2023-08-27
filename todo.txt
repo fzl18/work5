@@ -1,0 +1,443 @@
+flutter v2.0
+three.js  oasisengine    blender
+vue 3.0
+
+vk-admin 框架
+
+问题：
+设备运行状态   设备联机数   数据 验证
+
+
+
+思路：
+ 1. 过场组件： 普通组件外层包装一层过场组件，参数： 动画 delay， 变换类型，时间 transx库
+ 2.  拖拽排序 Vue.Draggable
+ 3. 厂区地图 移植
+ 4. 输送线布局
+
+https://www.zhangxinxu.com/wordpress/2020/09/svg-text-around-path/ textPath让文字沿着路径排列
+
+10/28
+图形引擎的利用 H5PPT、 serverless
+
+3d
+oasis，threejs
+材质添加，
+label 文字
+动画制作
+blender
+threejs和cesium结合   BIM
+
+svg描边 来进行 扫光动画
+镜头运用
+发光体制作，动画   css阴影发光样式
+
+
+layer : UI  导航  按钮 
+panel: params  
+
+采用 Animate.css 库 popup 类弹出框及 text 动效   Tweenjs 补间
+自定义指令来实现效果 
+
+封装 效果，运动 动画
+
+模型复制  gltf-pipeline 压缩
+
+思路：
+  1. 层级结构
+	layer层： 上下左右菜单， 弹窗、
+	module: 模型层
+  2. 将原来大屏的适配添加上
+
+ 模型加载完成 挂到 global上，并命名
+
+抽离出 tween动画方法
+配置写在总的config文件内 加上注解
+
+模型缓存在本地，添加版本管理，不一致再请求新模型
+
+优化：Web Worker、gzip
+
+todoList:
+物体拾取封装、   OK
+动态描边效果     特效
+天气变化效果
+轨道动画，画曲线  
+切换 摄像 控制器 第一人称， 自动旋转
+压缩，本地存储，优化 OK
+抽离 model    OK
+加入直播视频为 纹理
+
+换肤   js 改 css var( --color:#333)       body.style.setProperty（'--color','#cd0000'）
+
+加上时间   OK
+model加载统一封装方法  OK
+点击开启按钮 => 开场动画 => 场景转一圈拉远近 => 显示菜单 => 场景自动旋转   OK
+
+场景中曲线、精灵图(div的方式)的添加    OK
+
+弹窗 内的 3d场景制作 OK
+场景内模型的动态批量加载与去除，优化内存   OK 
+清除3d场景   OK
+
+
+多场景的切换， 多摄像机的切换 
+
+加入时时 websocket
+
+加入 svg地图 或者 生成 挤压网格+ geojson地图 等功能       OK
+
+地图上加地名 + 地图数据切换   数据的删除（model放在一个组件中，通过if来实现）  OK
+
+多线程加入：worker
+
+引入图标字体 OK
+
+3DOBJ 属性 layer 设置可见性（mask）
+
+处理layer层的 分离问题，布局与皮肤的关系
+
+css2dobject, css3dobject 添加  OK
+
+开场加载主场景1完成后开始，绕场景一周，同时加载 接下来的场景2，加载完成后 由按钮点击进入，
+或者直接执行一个动画操作。 每条线都可点击进入 特写镜头，加载出 输送线的工作界面  OK
+
+加载进度显示 、清内存、加环境贴图    OK
+
+进入厂区，接口取数据， 详情区 对接数据   OK
+建 jinkens 上传代码发布UAT、解决在线视频问题  OK
+
+模型拖拽
+换肤功能，针对不行行业  换色
+路径移动，轨迹偏移
+
+输送机进入时 角度（前后端），加个状态， 弹窗可以拖动OK
+
+
+ue4学习计划：
+	蓝图系统，材质说明，动画，UMG，视觉特效
+
+微前端
+
+制作 webRTC-Player  OK
+
+RTC与蓝图通信     emitUIInteraction    https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/PixelStreaming/PixelStreamingIntro/
+
+多用户分配，支持线路选择，显示在线情况，管理员可以踢除。同页面上的控制权
+
+钉钉应用接入，免登demo
+https://open.dingtalk.com/abilities/24
+https://github.com/open-dingtalk/h5app-auth-demo?spm=dd_developers.homepage.0.0.4d4470f67NRVvy&file=h5app-auth-demo.git
+
+调用 云通讯
+
+
+xz -d node-v16.15.0-linux-x64.tar.xz
+tar -xf node-v16.15.0-linux-x64.tar
+mv node-16.15.0-linux-x64 node-v16.15.0
+
+前端框架商量结果：
+用不同分支来管理内外网： 
+       1. cas这块的对接更新迭代的频率不会大，需要保障其稳定。
+       2. 内外架构的流程还是有区别的，分开代码条理清晰易懂，互混增加了代码逻辑，同时也容易改错。
+       3. 隔离开可以保障一端的修改不需要测试另一端，更有安全性
+       相较于维护2套代码的成本，以上优势更明显
+
+
+前端脚手架cli
+vuepress文档系统搭建
+https://v2.vuepress.vuejs.org/zh/guide/assets.html#%E4%BE%9D%E8%B5%96%E5%8C%85%E5%92%8C%E8%B7%AF%E5%BE%84%E5%88%AB%E5%90%8D
+
+
+
+6月22号  读书分享
+
+
+手机 WMS  /  PC 打印功能
+
+
+上传、图表、登出 删除依赖重装
+
+
+vue3.0  serveless 框架
+
+上半年总结：  npm 私库   CI持续改善系统， 管理驾驶舱V1.1 3D版， 文件上传系统中嵌入集成了 3d组件展示3d模型
+
+qiankun 改造：
+	css隔离，静态资源加载路径，接口访问路径，跨域问题
+路由：需要添加  path: '/subapp/*',   subapp为子应用前缀
+activeRule: '/subapp',  路径必须与子应用中  路由 base 中一致
+main.js 注册子应用，
+布局文件appMain 中添加 挂载 容器
+nginx设置请求头： https://segmentfault.com/a/1190000012550346
+
+父应用：注册子应用，添加路由， 路由页面中添加 容器
+
+子应用： 请求 base 的修改，  判断是否来源 qiankun,  window.__POWERED_BY_QIANKUN__ 需要对 一些 dom进行隐藏， 处理：本地路由 base路径,   webpack：添加跨域，打包编码umd
+
+鉴权：基于sso    单体，微服务同步没有问题
+
+问题：
+    处理基座菜单与微应用菜单
+    处理埋点js报错问题
+    图片等资源加载的路径问题
+    子应用加载过程中，容器为空问题
+
+
+验证菜单返回结果，按权限系统根节点编码来取，在前端getMenu中写死
+权限系统中 拿到 字典数据，需要处理菜单路径前缀
+在字典数据的菜单中，通过描述中填写的 内容为前缀，
+
+
+qiankun: 资料路径问题 报404
+数字孪生项目   OK 
+
+
+现在 不到路由界面不会自动加载子应用
+
+基座： entry  入口 可以是相对路径，需要 加 '/'， activeRule：' /msgMicro/msg '
+
+文件系统的浏览功能 修复
+cli :   env 模式 :dev
+UE4与js通讯    
+
+图形引擎开发
+
+分左中右结构， 带有浮动帮助 按钮， 可以全屏放大
+先把微服务搞定 ：
+     前缀路径要改动地方， 基座： 路由、qiankun 入口， 菜单 layout index,    子应用：  路由    
+     document.write  会影响加载效果
+     菜单获取 与 前缀保持一致， 资源加载处的判断
+
+
+jsplumb 优势：
+
+流推送服务器 选择
+显卡选择
+带宽
+
+对UE的控制，根据用户权限来，是否是第一个 登录用户,  ，
+显示所有当前在线用户，可以踢当前用户
+公网访问 测试，
+动态创建 UE实例，所有用户断开后 杀死进程  
+先实现 nodejs 的动态启动UE，将代码加入至合适时机
+将 cirrus 中的 运行时的各时机 注解加上
+
+公网部署方案
+       1：将UE端与web服务器放置一起，UE直接设置公网IP与浏览器直连
+       2：ue端与web服务器分开布，需要内网穿透
+多用户访问方案
+       1：将推流服务事先运行，每个服务提供不同的 访问入口，由用户手动选择入口
+       2：由服务器来分配空闲的UE端进行推流
+       3：动态按需要 由服务器端打开，关闭UE端，节省资源
+
+PS：需要动态开放端口号
+
+打开win本地应用
+function executor() {
+    var exec = require('child_process').exec, child;
+    // exec_path 写入需要执行的命令
+    var exec_path = "a.exe";
+    
+    // 执行函数
+    child = exec(exec_path, function (error, stdout, stderr) {
+        if(error) return console.error(error);
+        // 返回结果封装在 stdout 中，字符串格式
+        console.log(stdout);
+    });
+}
+executor();
+
+杀死当前进程 win32
+function killApplication(exeName){ //未处理输出编码
+	const cmd = `taskkill -f /im ${exeName}`;
+  exec(cmd, function (err, stdout, stderr) {
+    if (err) { 
+      console.log(err);
+      let resbonse = {'execstatus': false, 'msg':err, 'stop':false};
+      return resbonse
+    }
+    console.log(stdout)
+    let resbonse = {'execstatus': true, 'msg':exeName+'已停止运行。', 'stop':true};
+    return resbonse
+  })
+}
+
+杀掉端口
+npx kill-port 8080
+
+
+云服务器 续费
+
+
+要有竞品，
+
+会议纪要写  OK 
+
+前端交流会OK、 完善微框架操作文档  openlayers用法  甘特图
+内网穿透专利  微前端视频教程，  UE流推送部署
+内网框架细节处理 OK
+
+
+openlayers：
+    styles={
+	'iconStart': new ol.style.Style({
+            image: new ol.style.Icon({
+                anchor: [0.5, 0.5],
+                src: './startSend.png',
+            }),
+        }),
+
+};  // 设置矢量元素样式 定义各种样式方便使用
+
+
+ 海栋 制作 统计模板，可以修改产品单价（需要有修改记录、人员、时间）
+
+图表：时间，金额 统计 /  货物名称，重量统计 /  时间段，  退货，数量统计，金额 
+table 下面为详细清单
+
+入库： 同申请单 （供应商、仓库）       2000
+财务：收发票（发票号、时间、金额、客户），    1000
+          收款，                                       1000
+          修改单价                                    1000
+统计：  导出 excel                                1000
+
+
+
+
+
+
+本年度半年 工作总结： 1.完成了公司首个web3d项目 “ 管理驾驶舱V1.1 ”，  本项目面向煤炭行业客户，基于矿井地测数据，定制构建巷道及地面输送监测可视化应用。 此项目完成后 填补了 公司在 web3d方面的应用空缺，也为后继的数据孪生开了个好头。  2.CI持续改善系统，为百年通定制的员工提交改善建议的发布系统，为提高工作效率，改善工作环境，处理安全隐患，项目发布上线后取得到了不错的效果，为公司完善管理工作发挥了该有的作用。3. NPM私仓 为前端技术团队提供了本地化的共享库，提交工作效率。
+  发展状态：来公司已1年多，目前各项工作开展顺利，团队磨合适应，能在工作中能发挥自己应有的能力。
+  自我评价：在本职岗位上能做好技术的选型，调研，关键技术攻关任务， 可以根据领导的安排，快速调整适应工作安排，能在团队中发挥出自己的作用。
+  不足之处：对新技术的采用可能有些保守，对前端团队的整体技能提升未能起到带头作用。
+     
+下半年工作/学习计划： 
+  1.数字孪生应用  
+  2.前端微服务推进 
+  3.点巡检V1.2 项目迭代
+  4. 内网穿透专利申请
+
+建议： 希望领导能在我不擅长的地方，在工作中对做的不到位之处能多加以指导，助力提升个人整体综合能力。
+
+
+保存，
+路径 动画， 行进
+点选样式  端点样式，
+每一段图形为一个图层， 参数控制能否编辑
+画的线是否在某个区域内
+
+取到当前图层元素： this.layer.getSource().getFeatures()
+
+读取数据，分层处理，判断是否能编辑
+加载自动 定位到 区域中心
+判断是否手机，点显示
+
+
+map.getView().fit(street.getGeometry())   适配当前屏
+
+年底总结
+视频播放器 dplayer   OK
+专利
+做视频教程   OK
+总结openlayers 结构方法
+地图3维转换  X
+echarts拆分   （先做个demo） OK
+地图拆分   OK 
+读书分享：
+
+
+//判断手机横竖屏状态：   
+window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {   
+        if (window.orientation === 180 || window.orientation === 0) {    
+            alert('竖屏状态！');   
+        }    
+        if (window.orientation === 90 || window.orientation === -90 ){    
+            alert('横屏状态！');   
+        }     
+    }, false);   
+//移动端的浏览器一般都支持window.orientation这个参数，通过这个参数可以判断出手机是处在横屏还是竖屏状态。
+
+屏幕方向对应的window.orientation值：
+
+ipad,iphone： 90 或 -90 横屏
+ipad,iphone： 0 或180 竖屏
+Andriod：0 或180 横屏
+Andriod： 90 或 -90 竖屏
+
+@echo off  // .bat    win系统运行exe文件脚本
+start xxx.exe -ResX=1920 -ResY=1080 -PixelStreamingIP=xxx -PixelStreamingPort=18888 -log -RenderOffScreen
+
+WebRTC直播技术方案  https://cloud.tencent.com/developer/article/2109232    用来写原理
+
+
+本年度下半年 工作总结：
+ 1.  基于UE 3D引擎完成 数字孪生POC项目 B/S架构视频流推送服务，使得UE强大的3D渲染效果可以跨平台的在各类低端电脑浏览器上展示并与之交互，为公司在3D化展示，元宇宙布局，数字孪生应用向前迈进了一步，并取得了不错的效果，尤其在视频流推送方面，较早的走在了行业的头部。积累了不少3D方面相关经验。
+ 2. 点巡检V1.2项目中，着手封装了首个基于卫星地图数据，开发的第一个GIS地图业务功能组件，填补了公司在该类别组件上的空白，实现了在地图上直接展示、绘制厂区、输送线、设备、标注巡检点等一系列功能，做到了与实际业务环境相一致，大大提升了用户的使用体验与交互感受。并为移动端进行了代码优化，把整体加载时间提升到1秒内，核心代码压缩后不到100K，大大提升了打开速度，取得了不错的性能与用户体验。
+3. 应对用户需求的多变性，方便业务模块的多元化组合，解耦工业互联网应用，解决开发迭代的痛点, 完成了前端微服务框架的主应用与子应用框架代码，并给团队小伙伴们提供了手把手的教程《前端微服务迁移指南》(PPT) ，还配套了演示视频。
+4 其它参与的项目有：视频门户 V 1.0、CI持续改善系统、NPM私仓 等
+
+  发展状态：来公司快2年了，目前对公司的发展方向、战略计划有了更全面清晰的认知， 各项工作开展顺利，对公司的前景充满信心。
+  自我评价：能严格要求自己，对工作尽心尽力，项目能保质保量交付，能胜任领导安排的各项工作，能在工作中能发挥自己应有的能力，挑战未知。
+  不足之处：创新能力还有待提升，在新机遇面前不够果断。
+
+半年度工作计划：
+  1.管理驾驶舱V1.3   针对目标客户需求，进行定制化开发，功能增强优化；
+  2.数字孪生应用      在5大行业场景中实现高端3d展示案例；
+  3.视频门户V1.1      优化迭代宝通视频门户，提升用户体验；
+  4.前端微服务          继续推动前端微服务架构，解决现阶段开发迭代的痛点；
+半年度学习计划：
+      以公司发展需求为基准，努力打造自身硬实力，顺应趋势，在元宇宙、数字孪生应用、在线3D展示，在线监测方面深入了解行业动态，了解用户深层次需求，提升个人专项技能，重点会在： 计算机图形、3D交互、视频技术等方面深入学习
+希望公司能给员工足够的空间来：创新，可包容试错，愿意花时间来培养员工，能给予更多的发展机会。
+
+
+
+处理播放记录 userVideoLog   播放次数
+拿当前用户
+
+手机端 视频列表，
+播放器里的设置
+
+手机 按 参数显示 功能
+
+JSESSIONID 值
+
+视频字体大小
+线的颜色
+
+Authorization
+eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiI5NmE1MzIwYzI5NDc1NThhZTE2MjAwNjk0Yzc5YTdlYmYxMDAzOTdhIiwic3ViIjoie1wiam9iQ29kZVwiOlwiQlRaTjAwMzlcIixcInVzZXJpZFwiOlwiMDgyNzQwNDA2MDI2Mjk4MjYyXCIsXCJuYW1lXCI6XCLmnajmn7Poj4FcIixcImRlcGFydG1lbnRcIjpbMzU5NDQ2Mjg5XSxcInRpbWVTdGFtcFwiOjE2NzI4MTU4NzJ9IiwiaWF0IjoxNjcyODE1ODcyLCJqdGkiOiIwMGE4OTM1Zi1lYTNkLTQyMWQtYjNlNi1jYTNiYzgyNDM2MjkifQ.EHm2wRSUc9PCiZ2cX3-zAxgQQSXRz_AaoKqZtpdoJclA9b87bChXnV01_HUoBlzHRCZ1zSmKnwQpCfmdqNUD9BmvGZSnFOfV6pMESzBGjuGkpYovxa1ER5t8AcpWvmEXcHM5N7PhBXlHqSC-GH3PDsX-jpscLZ2mSqmR8g2Edxo
+
+抖音账号已开通： 可以小程序等工具软件开发
+
+收集各类 AI 实用工具
+
+IP变现要走通
+搜索 XXX 玩法
+
+做 idraw 的工具站
+
+苏ICP备2023010494号-1
+
+huggingface  用法  ID: richieyang84@qq.com  PW:winmine373663
+
+cool-admin 框架 https://cool-js.com/    midwayjs的使用
+strapi  使用
+LangChain+LLM
+uniCloud  VK 框架   
+text-generation-webui  API调用
+vscode插件开发
+uni-ai使用
+
+AntV L7   mapBox 离线应用  vue-mapbox组件  mapbox-gljs
+ tailmaker https://github.com/systemed/tilemaker 工具将 .osm.pbf 转换成 .mbtiles 文件
+Mapbox 工具集  https://github.com/mapbox/awesome-vector-tiles
+
+开头做动画，侧边栏 显示详情
+厂区，全球，中国，省，市，  加载3D， 路径
+参考：https://www.shanhaibi.com/
+
+mapbox的vue封装， 加载倾斜摄影模型，地图局部着色，
+QGIS地图的图层绘制方法
+如何实现OSM地图本地发布并自定义配图  maputnik
+矢量瓦片版：mapboxgl + maputnik + geoserver + postGIS + openmaptiles + three.js
