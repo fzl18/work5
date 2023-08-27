@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#svg_3 {
+			position: absolute;
+			top: 0;
+			left: 0;
+		  stroke-dasharray: 1000;
+		  stroke-dashoffset: 1000;
+		  animation: dash 5s linear infinite;
+		}
+		
+		@keyframes dash {
+		  to {
+		    stroke-dashoffset: 0;
+		  }
+		}
+		.font{
+			display:inline-block;
+			offset-path: path("m176.5,299.85c0,0 -1,-123 -1,-124c0,-1 250,-135 318,-12c68,123 -317,136 -317,136z");
+			offset-rotate: auto 0deg;
+			
+		}
+		@keyframes move {
+		  100% { offset-distance: 100%;}
+		}
+		.y{
+			width: 50px;
+			height: 100px;
+			border: 1px solid red;
+			display: block;
+			border-radius:0 50px 50px 0;
+			border-left: none;
+		}
+		#que{
+			opacity: .6;
+			transition: all 1s;
+			filter: hue-rotate(60deg);
+		}
+		#que:hover{
+			opacity: 1;
+		}
+		#svg_1:hover{			
+			fill: #FF0000;
+		}
+		#kuai{
+			-webkit-mask-image: url('./onlineMonitoring/pidai.png');
+			border: 1px solid;
+			mask-size:517px 500px;
+			background: url("./onlineMonitoring/mokuai.png");
+			/* width: 100px; */
+			/* height: 100px; */
+			offset-path: path(
+				  'm167.59424,1.23136l649.07637,0l0,0c85.03085,0 153.96181,35.14567 153.96181,78.50002c0,43.35434 -68.93099,78.49999 -153.96181,78.49999l-649.07637,0l0,0c-85.03076,0 -153.96181,-35.14565 -153.96181,-78.49999c0,-43.35437 68.93106,-78.50002 153.96181,-78.50002z'
+			);
+			offset-rotate: 0deg;
+			animation: move 20s linear infinite;
+		}
+	</style>
+	<body>
+		<span class="font" style="animation: move 5800ms linear infinite;">走</span>
+		<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTgwIiBoZWlnaHQ9IjQwMCIKICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8Zz4KICAgICAgICA8dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+CiAgICAgICAgPHJlY3QgZmlsbD0iI2ZmZiIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBoZWlnaHQ9IjQwMiIgd2lkdGg9IjU4MiIgeT0iLTEiIHg9Ii0xIi8+CiAgICAgICAgPGcgZGlzcGxheT0ibm9uZSIgb3ZlcmZsb3c9InZpc2libGUiIHk9IjAiIHg9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGlkPSJjYW52YXNHcmlkIj4KICAgICAgICAgICAgPHJlY3QgZmlsbD0idXJsKCNncmlkcGF0dGVybikiIHN0cm9rZS13aWR0aD0iMCIgeT0iMCIgeD0iMCIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSIvPgogICAgICAgIDwvZz4KICAgIDwvZz4KICAgIDxnPgogICAgICAgIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICAgICAgICA8cGF0aCBpZD0ic3ZnXzMiIGQ9Im0xNzYuNSwyOTkuODVjMCwwIC0xLC0xMjMgLTEsLTEyNGMwLC0xIDI1MCwtMTM1IDMxOCwtMTJjNjgsMTIzIC0zMTcsMTM2IC0zMTcsMTM2eiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZT0iIzAwMCIgZmlsbD0iI2ZmZiIvPgogICAgPC9nPgo8L3N2Zz4=" alt="">
+		<svg width="580" height="400">
+		  <path id="svg_3" d="m176.5,299.85c0,0 -1,-123 -1,-124c0,-1 250,-135 318,-12c68,123 -317,136 -317,136z" stroke-width="1.5" stroke="#000" fill="none"/>
+		</svg>
+		<span class="y"></span>
+		<svg id="que" width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+		  <rect fill="#fff" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+		  <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+		  <rect stroke="#000" id="svg_2" height="17" width="80" y="257.85" x="145.5" stroke-width="0" fill="#afff53"/>
+		  <rect stroke="#000" id="svg_3" height="42" width="80" y="199.85" x="144.5" stroke-width="0" fill="#B6C7EA"/>
+		  <rect stroke="#000" id="svg_1" height="82" width="18" y="195.85" x="127.5" stroke-width="0" fill="#9A8AAB"/>
+		</svg>
+		<img src="./onlineMonitoring/pidai.png" alt="">
+		
+		<div id="kuai">
+			<img src="./onlineMonitoring/mokuai.png" alt="">
+		</div>
+		
+	</body>
+</html>
