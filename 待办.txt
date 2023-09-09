@@ -152,17 +152,6 @@ done
 	所有工作项目代码
 
 
-外网面板地址:  http://1.13.177.92:8888/tencentcloud
-内网面板地址:  http://10.0.0.6:8888/tencentcloud
-username: gdbzriww
-password: eb9f0df79a67
-
-id:  1625070884580495361
-mmAlias:  SP-GPK2023021306
-userName:TvpzqxA97dxyCQFRCOdz
-
-api: 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
-org: org-ZHbpxcCaJfiKGiSKrUQ91vHN
 
 
 框架：
